@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cómo instalar CCTGATE en tu celular — Guía paso a paso</title>
+  <meta name="description" content="Instala la aplicación CCTGATE en tu celular en 30 segundos. Guía paso a paso con imágenes para Android e iPhone. Sin pasar por App Store ni Play Store." />
+  <meta name="theme-color" content="#0c0f1a" />
+  <link rel="canonical" href="https://cctgate.cl/instalar.html" />
+  <link rel="icon" type="image/png" href="logo-cctgate.png" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Instalar CCTGATE en tu celular" />
+  <meta property="og:description" content="Guía paso a paso para instalar la app CCTGATE en Android e iPhone en 30 segundos." />
+  <meta property="og:image" content="https://cctgate.cl/logo-cctgate.png" />
+  <meta property="og:locale" content="es_CL" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:         #0c0f1a;
+      --bg-card:    #131728;
+      --bg-card2:   #1a1f35;
+      --border:     rgba(255,255,255,.07);
+      --orange:     #e8701a;
+      --orange-h:   #ff8533;
+      --orange-dim: rgba(232,112,26,.15);
+      --green:      #22c55e;
+      --green-dim:  rgba(34,197,94,.12);
+      --android:    #3ddc84;
+      --apple:      #a8b3ce;
+      --text:       #f0f4ff;
+      --text-muted: #8892aa;
+      --text-dim:   #3d4a6a;
+      --radius:     14px;
+      --radius-lg:  22px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+    a { color: var(--orange); text-decoration: none; }
+    a:hover { color: var(--orange-h); }
+    img, svg { max-width: 100%; display: block; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--text-dim); border-radius: 3px; }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(12,15,26,.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; letter-spacing: -.02em; color: var(--text); }
+    .nav-logo:hover { color: var(--text); }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-muted); font-weight: 600; font-size: .9rem;
+      padding: 8px 16px; border: 1px solid var(--border); border-radius: 10px;
+      transition: border-color .2s, color .2s;
+    }
+    .nav-back:hover { color: var(--text); border-color: rgba(255,255,255,.2); }
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 56px;
+      background: radial-gradient(ellipse at top, rgba(232,112,26,.1), transparent 60%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--orange-dim); color: var(--orange);
+      border: 1px solid rgba(232,112,26,.3); border-radius: 999px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; padding: 5px 14px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      font-weight: 800; letter-spacing: -.025em; line-height: 1.1;
+      margin: 22px 0 18px;
+    }
+    .hero h1 span { color: var(--orange); }
+    .hero p {
+      color: var(--text-muted); max-width: 640px; margin: 0 auto;
+      font-size: 1.05rem;
+    }
+    .hero-time {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-dim); color: var(--green);
+      border: 1px solid rgba(34,197,94,.25); border-radius: 999px;
+      padding: 6px 14px; font-size: .82rem; font-weight: 600;
+      margin-top: 22px;
+    }
+
+    /* SECTION */
+    section.step-section { padding: 64px 0 40px; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800; letter-spacing: -.02em;
+      margin: 12px 0 8px;
+    }
+    .section-header h2 span { color: var(--orange); }
+    .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+    /* DEVICE PICKER */
+    .device-picker {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .device-picker { grid-template-columns: 1fr; }
+    }
+    .device-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .2s, transform .15s, background .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .device-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.18); }
+    .device-card.active {
+      border-color: var(--orange);
+      background: linear-gradient(180deg, rgba(232,112,26,.08), var(--bg-card));
+    }
+    .device-card .device-icon {
+      width: 64px; height: 64px;
+      margin: 0 auto 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .device-card.android .device-icon svg { fill: var(--android); }
+    .device-card.apple   .device-icon svg { fill: var(--apple); }
+    .device-card .device-name {
+      font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .device-card .device-sub {
+      font-size: .85rem; color: var(--text-muted);
+    }
+    .device-card .device-checkmark {
+      position: absolute; top: 12px; right: 12px;
+      width: 24px; height: 24px;
+      background: var(--orange); border-radius: 50%;
+      display: none; align-items: center; justify-content: center;
+      color: white; font-size: .8rem; font-weight: 800;
+    }
+    .device-card.active .device-checkmark { display: flex; }
+
+    /* STEPS */
+    .steps-wrapper { display: none; }
+    .steps-wrapper.active { display: block; }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 880px;
+      margin: 56px auto 0;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 36px;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+    }
+    @media (max-width: 720px) {
+      .step { grid-template-columns: 1fr; padding: 22px; gap: 22px; }
+      .step-visual { order: -1; }
+    }
+    .step-body { min-width: 0; }
+    .step-num-row { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .step-num {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(232,112,26,.35);
+      color: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+    .step h3 { font-size: 1.15rem; font-weight: 700; margin: 0; }
+    .step p { color: var(--text-muted); margin-bottom: 0; }
+    .step p + p { margin-top: 8px; }
+    .step .keypress {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: var(--bg-card2); border: 1px solid var(--border);
+      border-radius: 6px; padding: 2px 8px; font-size: .82rem;
+      color: var(--text); font-weight: 600;
+    }
+
+    /* PHONE MOCKUP */
+    .phone {
+      width: 240px; height: 480px;
+      margin: 0 auto;
+      background: #1c1f2e;
+      border: 3px solid #2a2e44;
+      border-radius: 32px;
+      padding: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.45);
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-notch {
+      position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+      width: 90px; height: 18px;
+      background: #0a0c14; border-radius: 0 0 12px 12px;
+      z-index: 3;
+    }
+    .phone-screen {
+      width: 100%; height: 100%;
+      background: #f7f8fa;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      color: #111;
+      font-family: -apple-system, system-ui, sans-serif;
+      font-size: 11px;
+    }
+    .phone-statusbar {
+      height: 26px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      padding: 6px 14px 4px;
+      font-size: 10px; font-weight: 600;
+      background: white;
+      color: #111;
+    }
+
+    /* ANDROID MOCKUP STYLES */
+    .android-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 10px;
+      background: #f1f3f4;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .android-url {
+      flex: 1; background: white; border: 1px solid #dadce0;
+      border-radius: 999px; padding: 4px 10px;
+      font-size: 9.5px; color: #5f6368;
+      display: flex; align-items: center; gap: 4px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .android-url::before {
+      content: '🔒'; font-size: 8px;
+    }
+    .android-dots {
+      width: 16px; height: 16px;
+      display: flex; flex-direction: column; align-items: center; justify-content: space-around;
+      padding: 2px 0;
+    }
+    .android-dots span {
+      width: 3px; height: 3px; border-radius: 50%; background: #5f6368;
+    }
+    .android-dots-pulse {
+      position: relative;
+      padding: 4px 2px;
+      background: rgba(232,112,26,.18);
+      border-radius: 6px;
+      box-shadow: 0 0 0 2px var(--orange);
+      animation: dotsPulse 1.8s ease-in-out infinite;
+    }
+    .android-dots-pulse span { background: var(--orange); width: 3.5px; height: 3.5px; }
+    @keyframes dotsPulse {
+      0%, 100% { box-shadow: 0 0 0 2px var(--orange), 0 0 0 0 rgba(232,112,26,.5); }
+      50%      { box-shadow: 0 0 0 2px var(--orange), 0 0 0 8px rgba(232,112,26,0); }
+    }
+    .android-menu {
+      position: absolute; top: 40px; right: 6px;
+      width: 190px;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,.18);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 2;
+      animation: menuPop .5s ease-out;
+    }
+    @keyframes menuPop {
+      from { opacity: 0; transform: scale(.9) translateY(-8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .android-menu-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 12px;
+      color: #202124; font-size: 10px;
+    }
+    .android-menu-item.highlight {
+      background: #e8f0fe; color: #1a73e8; font-weight: 700;
+      border-left: 3px solid #1a73e8;
+      padding-left: 9px;
+    }
+    .android-menu-icon {
+      width: 14px; height: 14px;
+      background: #5f6368; border-radius: 2px;
+      flex-shrink: 0;
+      opacity: .6;
+    }
+    .android-menu-item.highlight .android-menu-icon { background: #1a73e8; opacity: 1; }
+    .android-page {
+      padding: 16px 14px;
+      background: white;
+      height: 100%;
+    }
+
+    /* SAFARI / iOS MOCKUP STYLES */
+    .ios-statusbar {
+      height: 32px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 22px;
+      font-size: 11px; font-weight: 700;
+      background: white;
+    }
+    .ios-statusbar::before {
+      content: '9:41';
+    }
+    .ios-statusbar::after {
+      content: '◗ ▮▮';
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+    .ios-content {
+      background: white; flex: 1; padding: 8px 0;
+      height: calc(100% - 32px - 50px);
+    }
+    .ios-toolbar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 50px;
+      background: rgba(247,248,250,.96);
+      border-top: 1px solid #d1d1d6;
+      display: flex; justify-content: space-around; align-items: center;
+      padding: 0 18px;
+      backdrop-filter: blur(10px);
+    }
+    .ios-toolbar-btn {
+      width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
+      color: #007aff;
+      font-size: 14px;
+    }
+    .ios-toolbar-btn.share {
+      background: rgba(0,122,255,.15);
+      border-radius: 6px;
+      animation: sharePulse 2s infinite;
+    }
+    @keyframes sharePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0,122,255,.4); }
+      50% { box-shadow: 0 0 0 6px rgba(0,122,255,0); }
+    }
+    .ios-share-sheet {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: #f2f2f7;
+      border-radius: 12px 12px 0 0;
+      padding: 14px 12px 26px;
+      box-shadow: 0 -4px 30px rgba(0,0,0,.2);
+      animation: sheetUp .5s ease-out;
+      z-index: 2;
+    }
+    @keyframes sheetUp {
+      from { transform: translateY(50%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .ios-share-handle {
+      width: 36px; height: 4px;
+      background: #c7c7cc; border-radius: 2px;
+      margin: 0 auto 10px;
+    }
+    .ios-share-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      background: white;
+      border-radius: 8px;
+      color: #111;
+      font-size: 10px;
+      margin-bottom: 6px;
+    }
+    .ios-share-row.highlight {
+      background: linear-gradient(90deg, white, #fff3e6);
+      border: 1px solid var(--orange);
+      box-shadow: 0 4px 12px rgba(232,112,26,.2);
+    }
+    .ios-share-icon {
+      width: 22px; height: 22px;
+      background: #007aff; border-radius: 5px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 12px;
+    }
+    .ios-share-row.highlight .ios-share-icon { background: #34c759; }
+    .ios-confirm-btn {
+      background: var(--orange); color: white;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-left: auto;
+    }
+
+    /* Page mock with CCTGATE app */
+    .app-mock {
+      padding: 14px;
+      height: 100%;
+      background: linear-gradient(180deg, #0c0f1a, #1a1f35);
+      color: white;
+      display: flex; flex-direction: column;
+      gap: 10px;
+    }
+    .app-mock-title {
+      font-size: 13px; font-weight: 800; text-align: center;
+      color: #e8701a;
+    }
+    .app-mock-card {
+      background: rgba(255,255,255,.08);
+      border-radius: 8px;
+      padding: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .app-mock-circle {
+      width: 36px; height: 36px;
+      background: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      overflow: hidden;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.25);
+    }
+    .app-mock-circle img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+    }
+    .app-mock-text { font-size: 9px; color: white; }
+    .app-mock-text small { color: #8892aa; display: block; margin-top: 2px; font-size: 8px; }
+
+    /* Home screen mockup */
+    .home-screen {
+      height: 100%;
+      background: linear-gradient(180deg, #4a6fa5, #2a3e5a);
+      padding: 18px 14px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px 8px;
+      align-content: start;
+    }
+    .home-icon {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    .home-icon.cctgate {
+      background: white;
+      animation: iconBounce 1.5s ease-in-out infinite;
+      position: relative;
+      padding: 4px;
+      overflow: hidden;
+    }
+    .home-icon.cctgate img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+    }
+
+    /* Highlight cuadrado tipo "marcador" sobre el icono CCTGATE + etiqueta en la screenshot real */
+    .cctgate-icon-highlight {
+      position: absolute;
+      top: 54%;
+      right: 4%;
+      width: 40px;
+      height: 56px;
+      border: 3px solid var(--orange);
+      border-radius: 9px;
+      pointer-events: none;
+      z-index: 5;
+      animation: iconHighlightPulse 1.8s ease-in-out infinite;
+    }
+    @keyframes iconHighlightPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(232,112,26,.6); }
+      50%      { box-shadow: 0 0 0 6px rgba(232,112,26,0); }
+    }
+    @keyframes iconBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .home-icon-label {
+      font-size: 7px; color: white;
+      text-align: center; margin-top: 4px;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0,0,0,.5);
+    }
+    .home-grid-cell { display: flex; flex-direction: column; align-items: center; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      max-width: 880px;
+      margin: 24px auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      border-radius: 10px;
+      padding: 16px 22px;
+    }
+    .callout strong { color: var(--text); }
+    .callout-warn { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .callout-info { border-left-color: #3b82f6; background: rgba(59,130,246,.06); }
+    .callout-warn::before { content: '⚠️  '; }
+    .callout-info::before { content: '💡  '; }
+    .callout p { color: var(--text-muted); margin-bottom: 6px; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* TROUBLESHOOTING */
+    .ts-section {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 56px;
+    }
+    .ts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      max-width: 880px;
+      margin: 32px auto 0;
+    }
+    @media (max-width: 720px) { .ts-grid { grid-template-columns: 1fr; } }
+    .ts-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+    .ts-card h4 {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 1rem; font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .ts-card h4::before {
+      content: '❓'; font-size: 1rem;
+    }
+    .ts-card p { color: var(--text-muted); font-size: .92rem; }
+
+    /* SUPPORT CTA */
+    .support-cta {
+      padding: 60px 0 80px;
+      text-align: center;
+    }
+    .support-box {
+      max-width: 600px; margin: 0 auto;
+      background: linear-gradient(135deg, #131728, #1a1f35);
+      border: 1px solid rgba(232,112,26,.25);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+    }
+    .support-box h3 {
+      font-size: 1.35rem; font-weight: 800; margin-bottom: 8px;
+    }
+    .support-box p { color: var(--text-muted); margin-bottom: 22px; }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25d366; color: white;
+      padding: 14px 26px;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: transform .15s, background .2s, box-shadow .2s;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe5d; color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,.5);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+      color: var(--text-muted);
+      font-size: .85rem;
+    }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 14px;
+    }
+    .footer-row a { color: var(--text-muted); }
+    .footer-row a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo-cctgate.png" alt="CCTGATE" style="width:36px;height:36px;object-fit:contain" />
+        CCTGATE
+      </a>
+      <a href="index.html" class="nav-back">← Volver al sitio</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="tag">📱 Instalación de la app</span>
+    <h1>Instala CCTGATE en tu celular<br /><span>en 30 segundos</span></h1>
+    <p>CCTGATE funciona como una aplicación normal en tu celular, pero se instala directamente desde el navegador. No necesitas pasar por la App Store ni por Google Play.</p>
+    <div class="hero-time">⏱ Tiempo estimado: 30 segundos</div>
+  </div>
+</section>
+
+<!-- DEVICE PICKER -->
+<section class="step-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">✦ Paso 1</span>
+      <h2>Elige <span>tu dispositivo</span></h2>
+      <p>Las instrucciones son distintas según uses Android o iPhone. Selecciona el tuyo:</p>
+    </div>
+
+    <div class="device-picker">
+      <div class="device-card android" data-device="android" onclick="selectDevice('android')">
+        <div class="device-checkmark">✓</div>
+        <div class="device-icon">
+          <svg viewBox="0 0 24 24" width="56" height="56">
+            <path d="M17.523 15.34l1.387-2.402a.293.293 0 00-.108-.4.293.293 0 00-.4.108l-1.404 2.432a8.726 8.726 0 00-3.998-.92 8.726 8.726 0 00-4 .92L7.598 12.65a.293.293 0 00-.4-.108.293.293 0 00-.108.4l1.388 2.402c-2.39 1.3-4.024 3.72-4.265 6.557h15.575c-.241-2.837-1.876-5.258-4.265-6.557zM8.66 19.024a.717.717 0 110-1.434.717.717 0 010 1.434zm6.683 0a.717.717 0 110-1.434.717.717 0 010 1.434z"/>
+          </svg>
+        </div>
+        <div class="device-name">Android</div>
+        <div class="device-sub">Samsung, Xiaomi, Motorola, etc.</div>
+      </div>
+
+      <div class="device-card apple" data-device="ios" onclick="selectDevice('ios')">
+        <div class="device-checkmark">✓</div>
+        <div class="device-icon">
+          <svg viewBox="0 0 24 24" width="56" height="56">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+        </div>
+        <div class="device-name">iPhone</div>
+        <div class="device-sub">Cualquier iPhone con iOS 13+</div>
+      </div>
+    </div>
+
+    <div class="callout callout-info" style="margin-top:28px">
+      <p><strong>¿No estás seguro?</strong> Si tu celular tiene el logo de la manzana 🍎 atrás, es un iPhone. Cualquier otro (Samsung, Xiaomi, Motorola, Huawei, etc.) usa Android.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PASOS ANDROID ════════ -->
+<div id="steps-android" class="steps-wrapper">
+  <section class="step-section" style="padding-top:24px">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag" style="background:rgba(61,220,132,.15);color:var(--android);border-color:rgba(61,220,132,.35)">🤖 Instrucciones para Android</span>
+        <h2>4 pasos para tener <span>CCTGATE en tu pantalla</span></h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <p><strong>Importante:</strong> usa el navegador <strong>Google Chrome</strong> (el círculo con cuatro colores). Si abres el link con Samsung Internet o Firefox, el botón de instalar puede no aparecer.</p>
+      </div>
+
+      <div class="steps-list">
+
+        <!-- STEP 1 ANDROID -->
+        <div class="step">
+          <div class="step-body">
+            <div class="step-num-row">
+              <div class="step-num">1</div>
+              <h3>Abre el link de CCTGATE en Chrome</h3>
+            </div>
+            <p>Toca el link que te enviamos por WhatsApp o email:</p>
+            <p><span class="keypress" style="font-size:.78rem;word-break:break-all">https://api-gate-af1a9.web.app</span></p>
+            <p>Espera a que cargue la página de inicio de sesión.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone">
+              <div class="phone-screen">
+                <img src="pwa-login.jpg" alt="Pantalla de login de CCTGATE" style="width:100%;height:100%;object-fit:cover;display:block">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 ANDROID -->
+        <div class="step">
+          <div class="step-body">
+            <div class="step-num-row">
+              <div class="step-num">2</div>
+              <h3>Toca el menú de Chrome (3 puntitos verticales)</h3>
+            </div>
+            <p>En la esquina <strong>superior derecha</strong> verás tres puntos verticales <span class="keypress">⋮</span>. Tócalos para abrir el menú.</p>
+            <p>Se desplegará una lista con opciones de Chrome.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone">
+              <div class="phone-screen" style="position:relative">
+                <img src="pwa-login.jpg" alt="Pantalla de login con menú Chrome" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.85)">
+                <div style="position:absolute;top:0;left:0;right:0;background:#202124;padding:8px 10px;display:flex;align-items:center;gap:8px;z-index:2">
+                  <div style="flex:1;background:#3c4043;border-radius:999px;padding:4px 10px;font-size:9px;color:#fff;display:flex;align-items:center;gap:5px;white-space:nowrap;overflow:hidden">🔒 api-gate-af1a9.web.app</div>
+                  <div class="android-dots android-dots-pulse"><span></span><span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 ANDROID -->
+        <div class="step">
+          <div class="step-body">
+            <div class="step-num-row">
+              <div class="step-num">3</div>
+              <h3>Toca "Instalar aplicación" o "Añadir a pantalla principal"</h3>
+            </div>
+            <p>Busca la opción <strong>"Instalar aplicación"</strong>. Si no aparece exactamente con ese nombre, también puede decir <strong>"Añadir a pantalla principal"</strong> o <strong>"Add to Home screen"</strong>.</p>
+            <p>Aparecerá un cuadro que dice <em>Instalar CCTGATE</em>. Toca <strong>Instalar</strong>.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone">
+              <div class="phone-screen" style="position:relative">
+                <img src="pwa-login.jpg" alt="Login con menú Chrome desplegado" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.4)">
+                <div style="position:absolute;top:0;left:0;right:0;background:#202124;padding:8px 10px;display:flex;align-items:center;gap:8px;z-index:2">
+                  <div style="flex:1;background:#3c4043;border-radius:999px;padding:4px 10px;font-size:9px;color:#fff;display:flex;align-items:center;gap:5px;white-space:nowrap;overflow:hidden">🔒 api-gate-af1a9.web.app</div>
+                  <div class="android-dots"><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span></div>
+                </div>
+                <div class="android-menu" style="top:42px">
+                  <div class="android-menu-item"><div class="android-menu-icon"></div>Nueva pestaña</div>
+                  <div class="android-menu-item"><div class="android-menu-icon"></div>Historial</div>
+                  <div class="android-menu-item"><div class="android-menu-icon"></div>Descargas</div>
+                  <div class="android-menu-item highlight"><div class="android-menu-icon"></div>Instalar aplicación</div>
+                  <div class="android-menu-item"><div class="android-menu-icon"></div>Configuración</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 ANDROID -->
+        <div class="step">
+          <div class="step-body">
+            <div class="step-num-row">
+              <div class="step-num">4</div>
+              <h3>¡Listo! Busca el icono en tu pantalla de inicio</h3>
+            </div>
+            <p>En unos segundos verás el icono naranja de <strong>CCTGATE</strong> en tu pantalla de inicio, junto al resto de tus aplicaciones.</p>
+            <p>Tócalo para abrir la app. A partir de ahora se comporta como una aplicación normal: pantalla completa, sin barra de navegación, y puedes recibir notificaciones.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone">
+              <div class="phone-screen" style="position:relative">
+                <img src="pwa-home.jpg" alt="Pantalla de inicio con CCTGATE instalado" style="width:100%;height:100%;object-fit:cover;display:block">
+                <!-- Indicador apuntando al icono CCTGATE en la pantalla -->
+                <div class="cctgate-icon-highlight"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout callout-info" style="margin-top:32px">
+        <p><strong>¿No te aparece la opción "Instalar aplicación"?</strong></p>
+        <p>1) Asegúrate de estar en <strong>Chrome</strong> (no en Samsung Internet ni Firefox). 2) Recarga la página deslizando hacia abajo. 3) Si tu Android es muy antiguo (versión 7 o anterior), la opción puede aparecer solo como "Añadir a pantalla principal".</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════ PASOS iOS ════════ -->
+<div id="steps-ios" class="steps-wrapper">
+  <section class="step-section" style="padding-top:24px">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag" style="background:rgba(168,179,206,.15);color:var(--apple);border-color:rgba(168,179,206,.35)">🍎 Instrucciones para iPhone</span>
+        <h2>4 pasos para tener <span>CCTGATE en tu pantalla</span></h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <p><strong>¡Atención! Usa Safari, no Chrome.</strong> En iPhone, la única forma de instalar la aplicación es desde el navegador <strong>Safari</strong> (el icono de la brújula azul). Si abres el link desde Chrome o desde el navegador interno de WhatsApp, no aparecerá la opción de instalar.</p>
+      </div>
+
+      <div class="steps-list">
+
+        <!-- STEP 1 iOS -->
+        <div class="step">
+          <div class="step-body">
+            <div class="step-num-row">
+              <div class="step-num">1</div>
+              <h3>Abre el link en Safari</h3>
+            </div>
+            <p>Toca el link que te enviamos. Si se abre dentro de WhatsApp, toca el icono <span class="keypress">↗</span> (compartir) arriba a la derecha y elige <strong>"Abrir en Safari"</strong>.</p>
+            <p>También puedes copiar el link y pegarlo en Safari manualmente:</p>
+            <p><span class="keypress" style="font-size:.78rem;word-break:break-all">https://api-gate-af1a9.web.app</span></p>
+          </div>
+          <div class="step-visual">
+            <div class="phone">
+              <div class="phone-notch"></div>
+              <div class="phone-screen" style="display:flex;flex-direction:column">
+                <div class="ios-statusbar"></div>
+                <div class="app-mock" style="flex:1">
+                  <div class="app-mock-title">CCTGATE</div>
+                  <div class="app-mock-card">
+                    <div class="app-mock-circle"><img src="logo-cctgate.png" alt="CCTGATE" /></div>
+                    <div class="app-mock-text">Iniciar sesión<small>Ingresa tu correo y clave</small></div>
+                  </div>
+                </div>
+                <div class="ios-toolbar">
+                  <div class="ios-toolbar-btn">‹</div>
+                  <div class="ios-toolbar-btn">›</div>
+                  <div class="ios-toolbar-btn share">⬆</div>
+                  <div class="ios-toolbar-btn">▢</div>
+                  <div class="ios-toolbar-btn">⤤</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 iOS -->
+        <div class="step">
+          <div class="step-body">
+            <div class="step-num-row">
+              <div class="step-num">2</div>
+              <h3>Toca el botón Compartir</h3>
+            </div>
+            <p>En la <strong>parte inferior</strong> de Safari verás un cuadrado con una flecha apuntando hacia arriba <span class="keypress">⬆</span>. Es el botón de compartir.</p>
+            <p>Tócalo. Aparecerá un panel desde abajo con varias opciones (AirDrop, Mensajes, etc.).</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone">
+              <div class="phone-notch"></div>
+              <div class="phone-screen" style="display:flex;flex-direction:column">
+                <div class="ios-statusbar"></div>
+                <div class="app-mock" style="flex:1;filter:brightness(.6)">
+                  <div class="app-mock-title">CCTGATE</div>
+                </div>
+                <div class="ios-toolbar">
+                  <div class="ios-toolbar-btn">‹</div>
+                  <div class="ios-toolbar-btn">›</div>
+                  <div class="ios-toolbar-btn share" style="transform:scale(1.4);border:2px solid #e8701a">⬆</div>
+                  <div class="ios-toolbar-btn">▢</div>
+                  <div class="ios-toolbar-btn">⤤</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 iOS -->
+        <div class="step">
+          <div class="step-body">
+            <div class="step-num-row">
+              <div class="step-num">3</div>
+              <h3>Desliza hacia abajo y toca "Añadir a pantalla de inicio"</h3>
+            </div>
+            <p>En el panel que se abrió, <strong>desliza hacia abajo</strong> hasta encontrar la opción <strong>"Añadir a pantalla de inicio"</strong> (o "Add to Home Screen" si tienes el iPhone en inglés).</p>
+            <p>Tócala. Aparecerá una pantalla con el nombre <em>CCTGATE</em> y el icono. Toca <strong>Añadir</strong> arriba a la derecha.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone">
+              <div class="phone-notch"></div>
+              <div class="phone-screen" style="display:flex;flex-direction:column;position:relative">
+                <div class="ios-statusbar"></div>
+                <div class="app-mock" style="flex:1;filter:brightness(.3)"></div>
+                <div class="ios-share-sheet">
+                  <div class="ios-share-handle"></div>
+                  <div class="ios-share-row">
+                    <div class="ios-share-icon">💬</div>
+                    <span>Mensajes</span>
+                  </div>
+                  <div class="ios-share-row">
+                    <div class="ios-share-icon">📩</div>
+                    <span>Mail</span>
+                  </div>
+                  <div class="ios-share-row highlight">
+                    <div class="ios-share-icon">+</div>
+                    <span>Añadir a pantalla de inicio</span>
+                    <span class="ios-confirm-btn">Añadir</span>
+                  </div>
+                  <div class="ios-share-row">
+                    <div class="ios-share-icon" style="background:#8e8e93">📑</div>
+                    <span>Copiar enlace</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 iOS -->
+        <div class="step">
+          <div class="step-body">
+            <div class="step-num-row">
+              <div class="step-num">4</div>
+              <h3>¡Listo! Busca el icono en tu pantalla principal</h3>
+            </div>
+            <p>El icono naranja de <strong>CCTGATE</strong> aparece automáticamente en tu pantalla principal, junto a tus otras apps.</p>
+            <p>Tócalo para abrir CCTGATE. Se comportará como una app nativa: pantalla completa, sin barra de Safari arriba, y puedes deslizar para volver al inicio igual que con cualquier otra app.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone">
+              <div class="phone-notch"></div>
+              <div class="phone-screen" style="display:flex;flex-direction:column">
+                <div class="ios-statusbar" style="background:transparent;color:white"></div>
+                <div class="home-screen">
+                  <div class="home-grid-cell"><div class="home-icon" style="background:linear-gradient(135deg,#5ac8fa,#007aff)">📞</div><div class="home-icon-label">Teléfono</div></div>
+                  <div class="home-grid-cell"><div class="home-icon" style="background:#34c759">💬</div><div class="home-icon-label">Mensajes</div></div>
+                  <div class="home-grid-cell"><div class="home-icon" style="background:#5e5e5e">📷</div><div class="home-icon-label">Cámara</div></div>
+                  <div class="home-grid-cell"><div class="home-icon" style="background:linear-gradient(135deg,#ff2d55,#ff6482)">🎵</div><div class="home-icon-label">Música</div></div>
+                  <div class="home-grid-cell"><div class="home-icon" style="background:#007aff">🧭</div><div class="home-icon-label">Safari</div></div>
+                  <div class="home-grid-cell"><div class="home-icon" style="background:linear-gradient(135deg,#ff9500,#ffcc00)">📅</div><div class="home-icon-label">Calendario</div></div>
+                  <div class="home-grid-cell">
+                    <div class="home-icon cctgate"><img src="logo-cctgate.png" alt="CCTGATE" /></div>
+                    <div class="home-icon-label" style="color:#fff;font-weight:700">CCTGATE</div>
+                  </div>
+                  <div class="home-grid-cell"><div class="home-icon" style="background:#8e8e93">⚙️</div><div class="home-icon-label">Ajustes</div></div>
+                </div>
+                <div class="ios-toolbar" style="background:transparent;border:none">
+                  <div style="width:120px;height:5px;background:rgba(255,255,255,.6);border-radius:3px;margin:0 auto"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout callout-info" style="margin-top:32px">
+        <p><strong>¿No te aparece "Añadir a pantalla de inicio"?</strong></p>
+        <p>1) Confirma que estás en <strong>Safari</strong>, no en Chrome (el icono de Chrome es un círculo de colores; el de Safari es una brújula azul). 2) Si abriste el link dentro de WhatsApp, toca el icono ↗ arriba a la derecha y elige <strong>"Abrir en Safari"</strong>. 3) Desliza hacia abajo en el panel: la opción "Añadir a pantalla de inicio" suele estar más abajo que las opciones de compartir habituales.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════ DUDAS FRECUENTES ════════ -->
+<section class="ts-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">❓ Dudas frecuentes</span>
+      <h2>Otras <span>preguntas</span></h2>
+    </div>
+
+    <div class="ts-grid">
+      <div class="ts-card">
+        <h4>¿Tengo que descargar nada?</h4>
+        <p>No. CCTGATE no está en App Store ni en Google Play. Se instala directamente desde el navegador y no ocupa espacio significativo en tu teléfono.</p>
+      </div>
+      <div class="ts-card">
+        <h4>¿Es seguro instalar una app así?</h4>
+        <p>Sí. CCTGATE usa la tecnología estándar PWA (Progressive Web App), avalada por Google y Apple. La conexión está cifrada con HTTPS y AES-256.</p>
+      </div>
+      <div class="ts-card">
+        <h4>¿Puedo recibir notificaciones?</h4>
+        <p>En Android sí, una vez instalada. En iPhone, las notificaciones push están disponibles desde iOS 16.4 en adelante, solo si la app está instalada en la pantalla principal.</p>
+      </div>
+      <div class="ts-card">
+        <h4>¿Se actualiza sola?</h4>
+        <p>Sí. Cada vez que abres CCTGATE, la app verifica si hay una versión nueva y se actualiza automáticamente. No tienes que hacer nada.</p>
+      </div>
+      <div class="ts-card">
+        <h4>¿Cómo desinstalo CCTGATE?</h4>
+        <p>Igual que cualquier app: mantén pulsado el icono en la pantalla de inicio y selecciona "Eliminar" o "Desinstalar". Tus datos quedan en tu cuenta y los recuperas al volver a instalar.</p>
+      </div>
+      <div class="ts-card">
+        <h4>¿Funciona en computador?</h4>
+        <p>Sí, abre el link en tu navegador (Chrome, Edge, Safari) y úsala normalmente. También puedes instalarla como app de escritorio desde el menú de Chrome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SUPPORT CTA ════════ -->
+<section class="support-cta">
+  <div class="container">
+    <div class="support-box">
+      <h3>¿Te quedaste atascado en algún paso?</h3>
+      <p>Escríbenos por WhatsApp y te guiamos en vivo. Resolvemos cualquier duda de instalación en menos de 5 minutos.</p>
+      <a href="https://wa.me/56975978604?text=Hola%2C%20necesito%20ayuda%20para%20instalar%20la%20app%20de%20CCTGATE"
+         target="_blank" rel="noopener" class="btn-whatsapp">
+        <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+          <path fill="#fff" d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16.001c0 2.257.594 4.464 1.722 6.41L3.2 28.8l6.539-1.713a12.768 12.768 0 006.262 1.594h.006c7.06 0 12.8-5.74 12.802-12.801 0-3.42-1.331-6.635-3.748-9.054A12.715 12.715 0 0016.001 3.2zm5.835 16.43c-.32-.16-1.892-.933-2.184-1.04-.292-.107-.504-.16-.717.16-.213.32-.823 1.04-1.009 1.253-.186.213-.372.24-.692.08-.32-.16-1.35-.498-2.572-1.587-.95-.847-1.591-1.893-1.778-2.213-.186-.32-.02-.493.14-.652.144-.143.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08-.16-.717-1.733-.983-2.373-.259-.622-.522-.538-.717-.547-.186-.009-.4-.011-.613-.011-.213 0-.56.08-.852.4-.293.32-1.12 1.093-1.12 2.666 0 1.573 1.146 3.094 1.306 3.307.16.213 2.258 3.448 5.471 4.834.764.33 1.36.526 1.825.673.766.243 1.464.21 2.015.127.615-.092 1.892-.773 2.158-1.519.266-.745.266-1.385.186-1.518-.08-.133-.293-.213-.613-.373z"/>
+        </svg>
+        Chatear por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <div>© 2026 CCTGATE. Todos los derechos reservados.</div>
+      <div>
+        <a href="index.html">Inicio</a>
+        <span style="color:var(--text-dim);margin:0 10px">·</span>
+        <a href="index.html#contacto">Contacto</a>
+        <span style="color:var(--text-dim);margin:0 10px">·</span>
+        <a href="legal.html">Legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Auto-select device based on user agent
+  function detectDevice() {
+    const ua = navigator.userAgent || '';
+    const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+    const isAndroid = /Android/i.test(ua);
+    if (isIOS) return 'ios';
+    if (isAndroid) return 'android';
+    return null;
+  }
+
+  function selectDevice(device) {
+    document.querySelectorAll('.device-card').forEach(c => c.classList.remove('active'));
+    document.querySelector(`.device-card[data-device="${device}"]`).classList.add('active');
+    document.querySelectorAll('.steps-wrapper').forEach(s => s.classList.remove('active'));
+    document.getElementById('steps-' + device).classList.add('active');
+    // Smooth scroll to steps
+    setTimeout(() => {
+      document.getElementById('steps-' + device).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  // Auto-select on load
+  window.addEventListener('DOMContentLoaded', () => {
+    const auto = detectDevice();
+    if (auto) {
+      document.querySelectorAll('.device-card').forEach(c => c.classList.remove('active'));
+      document.querySelector(`.device-card[data-device="${auto}"]`).classList.add('active');
+      document.getElementById('steps-' + auto).classList.add('active');
+    } else {
+      // Default to Android on desktop
+      document.querySelector('.device-card[data-device="android"]').classList.add('active');
+      document.getElementById('steps-android').classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>

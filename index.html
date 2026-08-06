@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCTGATE — Control de Acceso Inteligente con Cámara CCTV</title>
+  <meta name="description" content="Controla puertas, barreras y torniquetes desde tu celular. Cámara CCTV en vivo integrada, hasta 20.000 usuarios, instalación sobre tu sistema actual. Para condominios, empresas y comunidades en Chile." />
+  <meta name="keywords" content="control de acceso, portón inteligente, condominio, CCTV, apertura remota, Chile, cerradura inteligente" />
+  <meta name="author" content="CCTGATE" />
+  <meta name="theme-color" content="#0c0f1a" />
+  <link rel="canonical" href="https://cctgate.cl/" />
+  <link rel="icon" type="image/png" href="logo-cctgate.png" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cctgate.cl/" />
+  <meta property="og:title" content="CCTGATE — Control de Acceso Inteligente" />
+  <meta property="og:description" content="Abre puertas y barreras desde tu celular. Con cámara CCTV en vivo. Hasta 20.000 usuarios. Compatible con tu sistema actual." />
+  <meta property="og:image" content="https://cctgate.cl/logo-cctgate.png" />
+  <meta property="og:image:alt" content="CCTGATE — Control de acceso inteligente" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:site_name" content="CCTGATE" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CCTGATE — Control de Acceso Inteligente" />
+  <meta name="twitter:description" content="Abre puertas y barreras desde tu celular. Cámara CCTV integrada. Hasta 20.000 usuarios." />
+  <meta name="twitter:image" content="https://cctgate.cl/logo-cctgate.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:         #0c0f1a;
+      --bg-card:    #131728;
+      --bg-card2:   #1a1f35;
+      --border:     rgba(255,255,255,.07);
+      --orange:     #e8701a;
+      --orange-h:   #ff8533;
+      --orange-dim: rgba(232,112,26,.15);
+      --green:      #22c55e;
+      --green-dim:  rgba(34,197,94,.12);
+      --text:       #f0f4ff;
+      --text-muted: #8892aa;
+      --text-dim:   #3d4a6a;
+      --radius:     14px;
+      --radius-lg:  22px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--text-dim); border-radius: 3px; }
+
+    /* ─── Utilities ─── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--orange-dim); color: var(--orange);
+      border: 1px solid rgba(232,112,26,.3); border-radius: 999px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; padding: 5px 14px;
+    }
+    .badge-green {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green-dim); color: var(--green);
+      border: 1px solid rgba(34,197,94,.25); border-radius: 999px;
+      font-size: .72rem; font-weight: 600; padding: 4px 12px;
+    }
+    .badge-green::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--green); animation: pulse-g 2s infinite; }
+    @keyframes pulse-g { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.85)} }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--orange); color: #fff;
+      padding: 14px 28px; border-radius: 10px;
+      font-weight: 700; font-size: .95rem; border: none; cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(232,112,26,.35);
+    }
+    .btn-primary:hover { background: var(--orange-h); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,112,26,.45); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: transparent; color: var(--text);
+      padding: 13px 26px; border-radius: 10px;
+      font-weight: 600; font-size: .95rem;
+      border: 1px solid var(--border); cursor: pointer;
+      transition: border-color .2s, background .2s, transform .15s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.04); transform: translateY(-2px); }
+    .btn-green {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--green); color: #fff;
+      padding: 13px 26px; border-radius: 10px;
+      font-weight: 700; font-size: .95rem; border: none; cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(34,197,94,.35);
+    }
+    .btn-green:hover { background: #16a34a; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(34,197,94,.45); }
+
+    /* ─── Noise overlay ─── */
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      opacity: .5;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(12,15,26,.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 1.2rem; letter-spacing: -.02em;
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: #07090f; border: 1.5px solid #00c9a7;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 14px rgba(0,201,167,.25);
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: .9rem; font-weight: 500; color: var(--text-muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .nav-cta .btn-ghost { padding: 9px 20px; font-size: .88rem; }
+    .nav-cta .btn-primary { padding: 9px 20px; font-size: .88rem; box-shadow: none; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; overflow-x: hidden; overflow-y: visible;
+      padding: 110px 0 80px;
+    }
+    .hero-glow {
+      position: absolute; width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,112,26,.12) 0%, transparent 65%);
+      top: -300px; left: 50%; transform: translateX(-50%); pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .hero-eyebrow { margin-bottom: 22px; }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900;
+      line-height: 1.08; letter-spacing: -.03em;
+      margin-bottom: 22px;
+    }
+    h1 span { color: var(--orange); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--text-muted); max-width: 460px; margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 28px; margin-top: 44px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat-val { font-size: 1.5rem; font-weight: 800; color: var(--text); }
+    .hero-stat-lbl { font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* ─── App Mockup ─── */
+    .mockup-wrap { position: relative; display: flex; justify-content: center; }
+    .mockup-glow {
+      position: absolute; width: 340px; height: 340px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,112,26,.18) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none;
+    }
+    .app-card {
+      position: relative; z-index: 1;
+      background: #181c2a; border: 1px solid rgba(255,255,255,.09);
+      border-radius: 20px; padding: 20px 18px 18px;
+      width: 300px; box-shadow: 0 32px 80px rgba(0,0,0,.7);
+    }
+    .app-card-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
+    }
+    .app-card-title { font-weight: 700; font-size: 1rem; }
+    /* Body row: thumbnail + action button */
+    .app-body-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px; gap: 12px;
+    }
+    .app-thumb-circle {
+      width: 90px; height: 90px; border-radius: 50%; overflow: hidden;
+      border: 2px solid rgba(255,255,255,.12); flex-shrink: 0;
+      background: #0e1a0a;
+    }
+    .app-thumb-circle svg { width: 100%; height: 100%; }
+    /* Circular ACCIONAR PUERTA button */
+    .app-action-circle {
+      width: 110px; height: 110px; border-radius: 50%; flex-shrink: 0;
+      background: #1e2235; border: 2.5px solid rgba(255,255,255,.15);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 4px; cursor: pointer; transition: border-color .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,.5);
+    }
+    .app-action-circle:hover { border-color: rgba(232,112,26,.5); box-shadow: 0 4px 28px rgba(232,112,26,.2); }
+    .app-action-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--orange); display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; box-shadow: 0 2px 10px rgba(232,112,26,.5); margin-bottom: 2px;
+    }
+    .app-action-label { font-size: .6rem; font-weight: 800; letter-spacing: .04em; color: var(--text); text-align: center; line-height: 1.3; }
+    /* Tabs */
+    .app-tabs { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .app-tab {
+      flex: 1; background: var(--bg-card2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 9px 6px; text-align: center;
+      font-size: .72rem; font-weight: 600; color: var(--text-muted); cursor: pointer;
+      transition: all .2s; white-space: nowrap;
+    }
+    .app-tab:hover { color: var(--text); border-color: rgba(255,255,255,.15); }
+    .app-tab.active {
+      background: var(--orange); border-color: var(--orange); color: #fff;
+      box-shadow: 0 2px 10px rgba(232,112,26,.35);
+    }
+    .app-tab-key {
+      flex: 0 0 38px; background: var(--bg-card2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 9px 0; text-align: center;
+      font-size: .95rem; cursor: pointer; transition: all .2s;
+      color: #22c55e;
+    }
+    /* Live feed */
+    .app-live-feed {
+      position: relative; border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08); background: #080e06;
+    }
+    .app-live-feed svg { display: block; width: 100%; }
+    .live-indicator {
+      position: absolute; top: 8px; left: 10px; z-index: 2;
+      display: flex; align-items: center; gap: 5px;
+      font-size: .62rem; font-weight: 700; color: #fff;
+      background: rgba(0,0,0,.45); padding: 3px 8px; border-radius: 4px;
+    }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; animation: pulse-g 1.5s infinite; }
+    .ts-stamp {
+      position: absolute; top: 8px; right: 8px; z-index: 2;
+      font-size: .55rem; font-weight: 600; color: rgba(255,255,255,.7);
+      background: rgba(0,0,0,.4); padding: 2px 6px; border-radius: 3px; letter-spacing: .02em;
+    }
+    .ipc-label {
+      position: absolute; bottom: 7px; left: 10px; z-index: 2;
+      font-size: .58rem; font-weight: 700; color: rgba(255,255,255,.5);
+      letter-spacing: .05em;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ─── LOGOS BAND ─── */
+    .logos-band { padding: 50px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .logos-label { text-align: center; font-size: .78rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 28px; font-weight: 600; }
+    .logos-row { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .logo-pill {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+      padding: 10px 22px; font-size: .82rem; font-weight: 700; color: var(--text-muted);
+      letter-spacing: .04em;
+    }
+
+    /* ─── FEATURES ─── */
+    .section { padding: 96px 0; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; letter-spacing: -.025em; line-height: 1.15; margin-bottom: 14px; }
+    h2 span { color: var(--orange); }
+    .section-sub { font-size: 1rem; color: var(--text-muted); max-width: 540px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .features-grid { grid-template-columns: 1fr; } }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 28px 24px; transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .feature-card:hover { border-color: rgba(232,112,26,.35); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+    .feature-icon {
+      width: 46px; height: 46px; border-radius: 11px;
+      background: var(--orange-dim); border: 1px solid rgba(232,112,26,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 18px;
+    }
+    .feature-title { font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+    .feature-desc { font-size: .875rem; color: var(--text-muted); line-height: 1.65; }
+    .feature-card.featured {
+      background: linear-gradient(135deg, #1a1430 0%, var(--bg-card) 100%);
+      border-color: rgba(232,112,26,.3);
+    }
+    .feature-card.featured .feature-icon { background: rgba(232,112,26,.25); border-color: rgba(232,112,26,.5); }
+
+    /* ─── HOW IT WORKS ─── */
+    .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    @media (max-width: 768px) { .how-grid { grid-template-columns: 1fr; } }
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); position: relative; }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      background: var(--orange-dim); border: 2px solid rgba(232,112,26,.4);
+      color: var(--orange); font-weight: 800; font-size: .9rem;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .step-body h3 { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+    .step-body p { font-size: .875rem; color: var(--text-muted); }
+
+    .visual-panel {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,.5);
+    }
+    .panel-topbar {
+      background: var(--bg-card2); padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: #28c840; }
+    .panel-content { padding: 20px; }
+    .log-entry {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 14px; border-radius: 8px; margin-bottom: 8px;
+      background: var(--bg-card2); border: 1px solid var(--border);
+      font-size: .82rem;
+    }
+    .log-entry:last-child { margin-bottom: 0; }
+    .log-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .log-dot-g { background: var(--green); box-shadow: 0 0 6px rgba(34,197,94,.6); }
+    .log-dot-o { background: var(--orange); box-shadow: 0 0 6px rgba(232,112,26,.6); }
+    .log-dot-r { background: #f87171; }
+    .log-user { font-weight: 600; flex: 1; }
+    .log-time { color: var(--text-muted); font-size: .75rem; }
+    .log-action { font-size: .75rem; padding: 3px 9px; border-radius: 999px; font-weight: 600; }
+    .log-action.open { background: var(--green-dim); color: var(--green); }
+    .log-action.denied { background: rgba(248,113,113,.12); color: #f87171; }
+    .log-action.alarm { background: rgba(232,112,26,.15); color: var(--orange); }
+
+    /* ─── CCTV SECTION ─── */
+    .cctv-section { position: relative; overflow: hidden; }
+    .cctv-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(135deg, #0e1420 0%, #0c0f1a 100%);
+    }
+    .cctv-content { position: relative; z-index: 1; }
+    .cctv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    @media (max-width: 768px) { .cctv-grid { grid-template-columns: 1fr; } }
+    .camera-grid-demo {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .cam-feed {
+      aspect-ratio: 4/3; border-radius: 10px; overflow: hidden;
+      background: #050810; border: 1px solid var(--border); position: relative;
+    }
+    .cam-feed-inner {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 4px;
+    }
+    .cam-feed-label {
+      position: absolute; bottom: 8px; left: 8px;
+      font-size: .65rem; font-weight: 700; color: rgba(255,255,255,.6);
+      background: rgba(0,0,0,.5); padding: 2px 7px; border-radius: 4px;
+    }
+    .cam-feed:nth-child(1) .cam-feed-inner { background: linear-gradient(160deg,#091208,#050d03); }
+    .cam-feed:nth-child(2) .cam-feed-inner { background: linear-gradient(160deg,#0d0a05,#080602); }
+    .cam-feed:nth-child(3) .cam-feed-inner { background: linear-gradient(160deg,#050810,#080510); }
+    .cam-feed:nth-child(4) { border-color: rgba(232,112,26,.4); }
+    .cam-feed:nth-child(4) .cam-feed-inner { background: linear-gradient(160deg,#150a02,#100802); }
+    .cam-feed-icon { font-size: 1.6rem; opacity: .35; }
+    .cam-feed-sub { font-size: .62rem; color: var(--text-muted); letter-spacing: .04em; }
+    .cam-feed:nth-child(4) .cam-rec { display: flex; }
+    .cam-feed:not(:nth-child(4)) .cam-rec { display: none; }
+    .cctv-list { display: flex; flex-direction: column; gap: 16px; }
+    .cctv-item { display: flex; gap: 16px; align-items: flex-start; }
+    .cctv-item-icon {
+      width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px;
+      background: var(--orange-dim); border: 1px solid rgba(232,112,26,.25);
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .cctv-item h4 { font-weight: 700; font-size: .95rem; margin-bottom: 4px; }
+    .cctv-item p { font-size: .85rem; color: var(--text-muted); }
+
+    /* ─── STATS BAND ─── */
+    .stats-band {
+      padding: 72px 0;
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg) 100%);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    @media (max-width: 768px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+    .stat-card {
+      text-align: center; padding: 28px 16px;
+      background: var(--bg-card2); border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .stat-num { font-size: 2.4rem; font-weight: 900; color: var(--orange); letter-spacing: -.03em; }
+    .stat-unit { font-size: 1.1rem; font-weight: 700; }
+    .stat-lbl { font-size: .8rem; color: var(--text-muted); margin-top: 6px; }
+
+    /* ─── PRICING ─── */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+    @media (max-width: 900px) {
+      [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr 1fr !important; }
+      [style*="grid-template-columns:1fr 1fr"][style*="max-width:720px"] { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 560px) {
+      [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr !important; }
+    }
+    .price-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 32px 28px; position: relative; transition: transform .2s, box-shadow .2s;
+    }
+    .price-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+    .price-card.highlighted {
+      border-color: rgba(232,112,26,.5);
+      background: linear-gradient(160deg, #1a1028 0%, var(--bg-card) 100%);
+    }
+    .price-badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--orange); color: #fff; font-size: .7rem; font-weight: 700;
+      padding: 4px 14px; border-radius: 999px; letter-spacing: .05em; text-transform: uppercase;
+    }
+    .price-plan { font-size: .8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+    .price-num { font-size: 2.6rem; font-weight: 900; letter-spacing: -.04em; }
+    .price-num span { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
+    .price-desc { font-size: .85rem; color: var(--text-muted); margin-top: 6px; margin-bottom: 26px; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+    .price-features li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .88rem; color: var(--text-muted);
+    }
+    .price-features li::before { content: '✓'; color: var(--green); font-weight: 700; }
+    .price-features li.disabled { opacity: .4; }
+    .price-features li.disabled::before { content: '—'; color: var(--text-dim); }
+    .price-cta { width: 100%; padding: 14px; border-radius: 10px; font-weight: 700; font-size: .95rem; cursor: pointer; border: none; transition: all .2s; }
+    .price-cta-ghost { background: var(--bg-card2); color: var(--text); border: 1px solid var(--border); }
+    .price-cta-ghost:hover { border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.05); }
+    .price-cta-fill { background: var(--orange); color: #fff; box-shadow: 0 4px 20px rgba(232,112,26,.35); }
+    .price-cta-fill:hover { background: var(--orange-h); transform: translateY(-1px); }
+
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 20px 24px; font-weight: 600; font-size: .95rem; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      user-select: none; transition: background .2s;
+    }
+    .faq-q:hover { background: var(--bg-card2); }
+    .faq-arrow { transition: transform .3s; font-size: .9rem; color: var(--text-muted); }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a-inner { padding: 0 24px 20px; font-size: .875rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ─── CTA FINAL ─── */
+    .cta-section { padding: 100px 0; }
+    .cta-box {
+      background: linear-gradient(135deg, #1a1028 0%, #13152a 50%, #0e1a12 100%);
+      border: 1px solid rgba(232,112,26,.25); border-radius: var(--radius-lg);
+      padding: 72px 48px; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,112,26,.1) 0%, transparent 65%);
+      top: -200px; left: 50%; transform: translateX(-50%); pointer-events: none;
+    }
+    .cta-box h2 { font-size: clamp(1.8rem,4vw,2.8rem); margin-bottom: 16px; position: relative; }
+    .cta-box p { color: var(--text-muted); font-size: 1rem; max-width: 520px; margin: 0 auto 36px; position: relative; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border); padding: 52px 0 32px;
+    }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
+    @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    .footer-brand p { font-size: .875rem; color: var(--text-muted); margin-top: 12px; max-width: 240px; line-height: 1.65; }
+    .footer-col h4 { font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: .875rem; color: var(--text-muted); transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--text); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: .8rem; color: var(--text-dim); }
+    .footer-socials { display: flex; gap: 14px; }
+    .social-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; color: var(--text-muted); transition: all .2s; cursor: pointer;
+    }
+    .social-btn:hover { border-color: rgba(255,255,255,.2); color: var(--text); transform: translateY(-2px); }
+
+    /* ─── Video Modal ─── */
+    .video-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,.85); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center;
+    }
+    .video-modal-overlay.open { display: flex; }
+    .video-modal {
+      position: relative; width: 90vw; max-width: 960px;
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,.9);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .video-modal video { display: block; width: 100%; max-height: 80vh; background: #000; }
+    .video-modal-close {
+      position: absolute; top: 12px; right: 14px; z-index: 10;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(0,0,0,.6); border: 1px solid rgba(255,255,255,.2);
+      color: #fff; font-size: 1.1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .video-modal-close:hover { background: rgba(255,255,255,.15); }
+
+    /* ─── Responsive hero ─── */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .mockup-wrap { order: -1; }
+      .app-card { width: 260px; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 70px 0 60px; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+    }
+
+    /* ─── Floating WhatsApp button ─── */
+    .wa-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25d366;
+      color: #fff;
+      padding: 14px 20px 14px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .92rem;
+      box-shadow: 0 8px 30px rgba(37,211,102,.45), 0 2px 10px rgba(0,0,0,.25);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,.15);
+    }
+    .wa-fab:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 12px 40px rgba(37,211,102,.55), 0 4px 14px rgba(0,0,0,.3);
+    }
+    .wa-fab-icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wa-fab-icon svg { width: 100%; height: 100%; }
+    .wa-fab::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 999px;
+      border: 2px solid rgba(37,211,102,.4);
+      animation: wa-pulse 2.4s infinite;
+      pointer-events: none;
+    }
+    @keyframes wa-pulse {
+      0%   { transform: scale(.95); opacity: .7; }
+      70%  { transform: scale(1.15); opacity: 0; }
+      100% { transform: scale(.95); opacity: 0; }
+    }
+    @media (max-width: 560px) {
+      .wa-fab {
+        bottom: 16px;
+        right: 16px;
+        padding: 12px;
+        font-size: 0;
+        gap: 0;
+      }
+      .wa-fab-icon { width: 26px; height: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="logo-cctgate.png" alt="CCTGATE" style="width:36px;height:36px;object-fit:contain" />
+        CCTGATE
+      </a>
+      <div class="nav-links">
+        <a href="#caracteristicas">Características</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#camara">Cámara CCTV</a>
+        <a href="#precios">Precios</a>
+        <a href="instalar.html" style="color:var(--orange);display:inline-flex;align-items:center;gap:5px"><span style="font-size:.95rem">📱</span> Instalar app</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://api-gate-af1a9.web.app/" target="_blank" class="btn-green">Acceder al sistema</a>
+        <a href="#contacto" class="btn-primary">Quiero contratar</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Left -->
+      <div>
+        <div class="hero-eyebrow">
+          <span class="badge-green">Sistema activo</span>
+        </div>
+        <h1>Control de acceso <span>inteligente</span><br>creado para condominios<br><span style="font-size:.65em;color:var(--text-muted);font-weight:600">o cualquier puerta que desees controlar</span></h1>
+        <p class="hero-sub">
+          El condominio contrata el sistema y todos los residentes abren la puerta desde su celular. Sin control remoto, sin tarjetas, sin complicaciones.
+        </p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn-primary">
+            🚀 Quiero contratar
+          </a>
+          <button class="btn-ghost" onclick="openVideoModal()">
+            ▶ Ver cómo funciona
+          </button>
+        </div>
+        <div style="margin-top:16px">
+          <a href="https://api-gate-af1a9.web.app/" target="_blank" style="font-size:.82rem;color:var(--text-muted);text-decoration:underline;text-underline-offset:3px">
+            ¿Ya eres cliente? → Acceder al sistema
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-val">20K+</div>
+            <div class="hero-stat-lbl">Usuarios simultáneos</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">99.9%</div>
+            <div class="hero-stat-lbl">Disponibilidad</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">&lt; 1s</div>
+            <div class="hero-stat-lbl">Tiempo de apertura</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup -->
+      <div class="mockup-wrap" style="position:relative;padding:80px 0 90px">
+        <div class="mockup-glow"></div>
+
+        <!-- Anotación 1: foto de la puerta (arriba, sobre el thumbnail) -->
+        <div style="position:absolute;top:0;left:25%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;z-index:10">
+          <div style="background:var(--bg-card2);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:8px 14px;text-align:center;white-space:nowrap">
+            <div style="font-size:.72rem;font-weight:700;color:var(--text);line-height:1.3">📸 Foto de tu portón</div>
+            <div style="font-size:.65rem;color:var(--text-muted);margin-top:2px">Personaliza con una imagen de tu puerta</div>
+          </div>
+          <div style="width:1px;height:148px;background:linear-gradient(to bottom,rgba(255,255,255,.3),rgba(255,255,255,.1))"></div>
+          <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);box-shadow:0 0 6px rgba(255,255,255,.3)"></div>
+        </div>
+
+        <!-- Anotación 2: cámara en vivo (abajo, sobre el live feed) -->
+        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;z-index:10">
+          <div style="width:8px;height:8px;border-radius:50%;background:rgba(232,112,26,.8);box-shadow:0 0 6px rgba(232,112,26,.5)"></div>
+          <div style="width:1px;height:108px;background:linear-gradient(to bottom,rgba(232,112,26,.5),rgba(232,112,26,.15))"></div>
+          <div style="background:var(--bg-card2);border:1px solid rgba(232,112,26,.3);border-radius:10px;padding:8px 14px;text-align:center;white-space:nowrap">
+            <div style="font-size:.72rem;font-weight:700;color:var(--orange);line-height:1.3">📷 Cámara CCTV en vivo</div>
+            <div style="font-size:.65rem;color:var(--text-muted);margin-top:2px">Stream en tiempo real de tu cámara IP</div>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <!-- Header -->
+          <div class="app-card-header">
+            <div class="app-card-title">Nombre de la Puerta</div>
+            <span class="badge-green">ONLINE</span>
+          </div>
+
+          <!-- Thumbnail circular + botón ACCIONAR PUERTA circular -->
+          <div class="app-body-row">
+            <div class="app-thumb-circle">
+              <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                <!-- Sky -->
+                <rect width="90" height="45" fill="#5a7a9a"/>
+                <rect width="90" height="20" fill="#7aaac8"/>
+                <!-- Mountains background -->
+                <polygon points="0,45 20,20 45,35 70,15 90,30 90,45" fill="#4a6a55"/>
+                <!-- Ground -->
+                <rect y="45" width="90" height="45" fill="#3a4a25"/>
+                <!-- Dirt path -->
+                <polygon points="30,90 40,45 50,45 60,90" fill="#5a5030"/>
+                <!-- Vegetation left -->
+                <circle cx="15" cy="42" r="14" fill="#2a4a1a"/>
+                <circle cx="25" cy="38" r="10" fill="#335520"/>
+                <!-- Gate/fence -->
+                <rect x="55" y="35" width="2" height="20" fill="#8a7a60"/>
+                <rect x="65" y="37" width="2" height="18" fill="#8a7a60"/>
+                <rect x="55" y="40" width="12" height="2" fill="#8a7a60"/>
+                <!-- Small flowers/red bushes -->
+                <circle cx="10" cy="55" r="4" fill="#8a2a1a" opacity=".8"/>
+                <circle cx="18" cy="58" r="3" fill="#7a2015" opacity=".7"/>
+              </svg>
+            </div>
+            <div class="app-action-circle">
+              <div class="app-action-icon">🔓</div>
+              <div class="app-action-label">ACCIONAR<br/>PUERTA</div>
+            </div>
+          </div>
+
+          <!-- Tabs: Historial | Ocultar (activo) | Llave -->
+          <div class="app-tabs">
+            <div class="app-tab">📋 Historial</div>
+            <div class="app-tab active">📷 Ocultar</div>
+            <div class="app-tab-key">🔑</div>
+          </div>
+
+          <!-- Live camera feed -->
+          <div class="app-live-feed">
+            <div class="live-indicator"><span class="live-dot"></span> LIVE • 00:59</div>
+            <div class="ts-stamp">2026.05.12 10:58:43</div>
+            <svg viewBox="0 0 264 148" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#6a9ab8"/>
+                  <stop offset="100%" stop-color="#8ab5cc"/>
+                </linearGradient>
+                <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#4a5530"/>
+                  <stop offset="100%" stop-color="#3a4225"/>
+                </linearGradient>
+              </defs>
+              <!-- Sky -->
+              <rect width="264" height="70" fill="url(#sky)"/>
+              <!-- Clouds -->
+              <ellipse cx="200" cy="18" rx="30" ry="8" fill="white" opacity=".4"/>
+              <ellipse cx="220" cy="15" rx="20" ry="7" fill="white" opacity=".35"/>
+              <ellipse cx="50" cy="25" rx="22" ry="6" fill="white" opacity=".3"/>
+              <!-- Far mountains -->
+              <polygon points="0,70 30,38 70,58 110,30 150,50 190,28 230,45 264,35 264,70" fill="#5a7a55"/>
+              <polygon points="0,70 25,48 60,65 100,42 145,60 185,40 220,55 264,44 264,70" fill="#3d5a38"/>
+              <!-- Ground -->
+              <rect y="70" width="264" height="78" fill="url(#ground)"/>
+              <!-- Dirt road center -->
+              <polygon points="95,148 112,70 152,70 169,148" fill="#5a5535"/>
+              <line x1="120" y1="90" x2="144" y2="90" stroke="#4a4828" stroke-width="1" opacity=".5"/>
+              <line x1="117" y1="105" x2="147" y2="105" stroke="#4a4828" stroke-width="1" opacity=".5"/>
+              <line x1="113" y1="122" x2="151" y2="122" stroke="#4a4828" stroke-width="1" opacity=".5"/>
+              <!-- Dense vegetation left -->
+              <circle cx="18" cy="68" r="28" fill="#1e3a14"/>
+              <circle cx="42" cy="60" r="22" fill="#254a18"/>
+              <circle cx="60" cy="65" r="18" fill="#1e3a14"/>
+              <circle cx="75" cy="72" r="12" fill="#2a4a1c"/>
+              <!-- Red flowering plants left -->
+              <circle cx="22" cy="82" r="5" fill="#7a2010" opacity=".85"/>
+              <circle cx="32" cy="88" r="4" fill="#8a2815" opacity=".8"/>
+              <circle cx="14" cy="90" r="3" fill="#6a1a0c" opacity=".75"/>
+              <!-- Vegetation right -->
+              <circle cx="220" cy="72" r="16" fill="#1e3a14"/>
+              <circle cx="238" cy="66" r="20" fill="#254a18"/>
+              <circle cx="255" cy="70" r="14" fill="#1e3a14"/>
+              <!-- Fence/wall right side -->
+              <rect x="190" y="58" width="3" height="38" fill="#9a8a6a"/>
+              <rect x="200" y="60" width="3" height="36" fill="#9a8a6a"/>
+              <rect x="210" y="62" width="3" height="34" fill="#9a8a6a"/>
+              <rect x="220" y="62" width="3" height="22" fill="#9a8a6a"/>
+              <rect x="190" y="66" width="33" height="2.5" fill="#8a7a58"/>
+              <rect x="190" y="74" width="33" height="2.5" fill="#8a7a58"/>
+              <!-- Building far right -->
+              <rect x="225" y="44" width="39" height="28" fill="#4a5038"/>
+              <rect x="232" y="50" width="8" height="8" fill="#3a3f2a" opacity=".7"/>
+              <rect x="246" y="50" width="8" height="8" fill="#3a3f2a" opacity=".7"/>
+              <rect width="264" height="148" fill="black" opacity=".08"/>
+            </svg>
+            <div class="ipc-label">IPC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS BAND -->
+<div class="logos-band">
+  <div class="container">
+    <p class="logos-label">Compatible con</p>
+    <div class="logos-row">
+      <div class="logo-pill">iOS &amp; Android</div>
+      <div class="logo-pill">Hikvision</div>
+      <div class="logo-pill">Dahua</div>
+      <div class="logo-pill">RTMP</div>
+    </div>
+  </div>
+</div>
+
+<!-- CARACTERÍSTICAS -->
+<section class="section" id="caracteristicas">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">✦ Características</span>
+      <h2 style="margin-top:18px">Todo lo que necesitas para<br /><span>controlar el acceso</span></h2>
+      <p class="section-sub">Diseñado especialmente para condominios y comunidades, funciona también para cualquier puerta que necesites controlar.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card" style="background:linear-gradient(135deg,#0e2a14,#131728);border-color:rgba(34,197,94,.35);position:relative;overflow:hidden">
+        <div style="position:absolute;top:14px;right:14px;background:var(--green);color:#fff;font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase">Oferta</div>
+        <div class="feature-icon" style="background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.35)">🎁</div>
+        <div class="feature-title" style="color:var(--green)">Instalación gratis</div>
+        <div class="feature-desc">Condominios que contraten el plan mensual para <strong style="color:var(--text)">más de 50 usuarios</strong> no pagan instalación. El hardware y la puesta en marcha son sin costo.</div>
+      </div>
+      <div class="feature-card featured">
+        <div class="feature-icon">💳</div>
+        <div class="feature-title">Dos modos de cobro</div>
+        <div class="feature-desc">
+          El administrador elige cómo se paga el sistema:
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:flex-start;gap:8px;background:rgba(232,112,26,.1);border:1px solid rgba(232,112,26,.2);border-radius:8px;padding:8px 10px">
+              <span style="flex-shrink:0;font-size:1rem">🏢</span>
+              <div><strong style="color:var(--text);font-size:.85rem">Condominio paga por todos</strong><br/><span style="font-size:.78rem">Una suscripción mensual cubre a todos los residentes.</span></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:8px 10px">
+              <span style="flex-shrink:0;font-size:1rem">👤</span>
+              <div><strong style="color:var(--text);font-size:.85rem">Licencia por usuario</strong><br/><span style="font-size:.78rem">Cada residente paga su propia licencia semestral o anual.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card featured">
+        <div class="feature-icon">🔓</div>
+        <div class="feature-title">Apertura remota</div>
+        <div class="feature-desc">Abre cualquier puerta o barrera desde el teléfono, computadora o smartwatch sin importar dónde estés.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <div class="feature-title">Gestión de usuarios</div>
+        <div class="feature-desc">Agrega o quita residentes en segundos, de forma individual o cargando un Excel. El administrador tiene control total.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📷</div>
+        <div class="feature-title">Cámaras CCTV integradas</div>
+        <div class="feature-desc">Visualiza el live de cualquier cámara compatible con RTMP (Hikvision, Dahua y más) junto con el control de apertura.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-title">Historial de accesos</div>
+        <div class="feature-desc">Registro completo de quién entró, a qué hora y desde qué dispositivo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="section" id="como-funciona" style="padding-top:0">
+  <div class="container">
+    <div class="how-grid">
+      <!-- Steps -->
+      <div>
+        <span class="tag">✦ Cómo funciona</span>
+        <h2 style="margin-top:18px">De la instalación al<br /><span>control total</span> en minutos</h2>
+        <div class="steps" style="margin-top:36px">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h3>Instala el controlador</h3>
+              <p>Conecta el módulo CCTGATE a la cerradura, barrera o torniquete existente.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h3>Configura el acceso</h3>
+              <p>El administrador añade a los usuarios validados para usar el sistema, accede desde el panel web o la app móvil en pocos minutos.</p>
+              <div style="display:flex;align-items:center;gap:8px;margin-top:10px;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);border-radius:8px;padding:8px 12px">
+                <span style="font-size:.9rem">🚫</span>
+                <span style="font-size:.78rem;color:#f87171;font-weight:600">Solo usuarios validados por el administrador pueden acceder al sistema.</span>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h3>Vincula las cámaras</h3>
+              <p>Agrega tu cámara CCTV con protocolo RTMP. El stream aparece junto al botón de apertura.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h3>Controla desde cualquier lugar</h3>
+              <p>Abre puertas, revisa quién entró y gestiona usuarios desde iOS, Android o el navegador web.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual panel -->
+      <div class="visual-panel">
+        <div class="panel-topbar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span style="margin-left:10px;font-size:.8rem;color:var(--text-muted);font-weight:600">Historial de accesos — hoy</span>
+        </div>
+        <div class="panel-content" style="padding:0">
+          <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+            <thead>
+              <tr style="background:var(--bg-card2);border-bottom:1px solid var(--border)">
+                <th style="padding:10px 16px;text-align:left;color:var(--text-muted);font-weight:700;width:28px">#</th>
+                <th style="padding:10px 16px;text-align:left;color:var(--text-muted);font-weight:700">Usuario</th>
+                <th style="padding:10px 16px;text-align:left;color:var(--text-muted);font-weight:700;white-space:nowrap">Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:10px 16px;color:var(--text-muted)">1</td>
+                <td style="padding:10px 16px;color:var(--text)">carlos.m@empresa.com</td>
+                <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">12/5/2026, 8:16:29</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:10px 16px;color:var(--text-muted)">2</td>
+                <td style="padding:10px 16px;color:var(--text)">ana.lopez@empresa.com</td>
+                <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">11/5/2026, 18:00:00</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:10px 16px;color:var(--text-muted)">3</td>
+                <td style="padding:10px 16px;color:var(--text)">ana.lopez@empresa.com</td>
+                <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">11/5/2026, 17:55:00</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:10px 16px;color:var(--text-muted)">4</td>
+                <td style="padding:10px 16px;color:var(--text)">admin@empresa.com</td>
+                <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">10/5/2026, 19:28:30</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:10px 16px;color:var(--text-muted)">5</td>
+                <td style="padding:10px 16px;color:var(--text)">pedro.r@empresa.com</td>
+                <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">10/5/2026, 19:27:35</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:10px 16px;color:var(--text-muted)">6</td>
+                <td style="padding:10px 16px;color:var(--text)">maria.g@empresa.com</td>
+                <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">10/5/2026, 19:22:15</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:10px 16px;color:var(--text-muted)">7</td>
+                <td style="padding:10px 16px;color:var(--text)">carlos.m@empresa.com</td>
+                <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">10/5/2026, 18:08:18</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 16px;color:var(--text-muted)">8</td>
+                <td style="padding:10px 16px;color:var(--text)">admin@empresa.com</td>
+                <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">10/5/2026, 14:47:06</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CCTV -->
+<section class="section cctv-section" id="camara">
+  <div class="cctv-bg"></div>
+  <div class="container cctv-content">
+    <div class="cctv-grid">
+      <!-- App device cards demo -->
+      <div style="display:flex;flex-direction:column;gap:14px;width:100%">
+
+        <!-- Device 1: sin cámara -->
+        <div style="background:#181c2a;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 16px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+            <div style="font-weight:700;font-size:.95rem">Puerta 1</div>
+            <span class="badge-green">ONLINE</span>
+          </div>
+          <div style="display:flex;justify-content:center;margin-bottom:14px">
+            <div style="width:100px;height:100px;border-radius:50%;background:#1e2235;border:2.5px solid rgba(255,255,255,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:0 4px 20px rgba(0,0,0,.5)">
+              <div style="width:36px;height:36px;border-radius:9px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 2px 10px rgba(232,112,26,.5)">🔓</div>
+              <div style="font-size:.55rem;font-weight:800;letter-spacing:.04em;text-align:center;line-height:1.3">ACCIONAR<br/>PUERTA</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="flex:1;background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;padding:8px 6px;text-align:center;font-size:.68rem;font-weight:600;color:var(--text-muted)">📋 Historial</div>
+            <div style="width:36px;height:36px;background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#22c55e">🔑</div>
+          </div>
+        </div>
+
+        <!-- Device 2: con cámara -->
+        <div style="background:#181c2a;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 16px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+            <div style="font-weight:700;font-size:.95rem">Puerta 2</div>
+            <span class="badge-green">ONLINE</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px">
+            <div style="width:82px;height:82px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.12);flex-shrink:0;background:#0e1a0a">
+              <svg viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+                <rect width="82" height="41" fill="#5a7a9a"/>
+                <polygon points="0,41 18,18 41,32 64,14 82,28 82,41" fill="#4a6a55"/>
+                <rect y="41" width="82" height="41" fill="#3a4a25"/>
+                <polygon points="27,82 36,41 46,41 55,82" fill="#5a5030"/>
+                <circle cx="14" cy="38" r="13" fill="#2a4a1a"/>
+                <circle cx="24" cy="34" r="9" fill="#335520"/>
+                <rect x="50" y="32" width="2" height="18" fill="#8a7a60"/>
+                <rect x="59" y="34" width="2" height="16" fill="#8a7a60"/>
+                <rect x="50" y="37" width="11" height="2" fill="#8a7a60"/>
+                <circle cx="9" cy="50" r="4" fill="#8a2a1a" opacity=".8"/>
+                <circle cx="17" cy="53" r="3" fill="#7a2015" opacity=".7"/>
+              </svg>
+            </div>
+            <div style="width:100px;height:100px;border-radius:50%;background:#1e2235;border:2.5px solid rgba(255,255,255,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:0 4px 20px rgba(0,0,0,.5)">
+              <div style="width:36px;height:36px;border-radius:9px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 2px 10px rgba(232,112,26,.5)">🔓</div>
+              <div style="font-size:.55rem;font-weight:800;letter-spacing:.04em;text-align:center;line-height:1.3">ACCIONAR<br/>PUERTA</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="flex:1;background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;padding:8px 6px;text-align:center;font-size:.68rem;font-weight:600;color:var(--text-muted)">📋 Historial</div>
+            <div style="flex:1;background:var(--orange);border:1px solid var(--orange);border-radius:8px;padding:8px 6px;text-align:center;font-size:.68rem;font-weight:700;color:#fff;box-shadow:0 2px 10px rgba(232,112,26,.35)">📷 Cámara</div>
+            <div style="width:36px;height:36px;background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#22c55e">🔑</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Text -->
+      <div>
+        <span class="tag">✦ Integración CCTV</span>
+        <h2 style="margin-top:18px">Ve y controla al<br /><span>mismo tiempo</span></h2>
+        <p style="color:var(--text-muted);margin:16px 0 32px;font-size:.95rem">El video y el control de acceso viven en la misma pantalla. Sin tener que cambiar de app ni de pestaña.</p>
+        <div class="cctv-list">
+          <div class="cctv-item">
+            <div class="cctv-item-icon">📡</div>
+            <div>
+              <h4>Streaming en vivo</h4>
+              <p>Visualización de baja latencia compatible con cámaras Hikvision, Dahua, Reolink y más. <strong style="color:var(--orange)">La cámara debe soportar el protocolo RTMP</strong> para integrarse con CCTGATE.</p>
+            </div>
+          </div>
+          <div class="cctv-item">
+            <div class="cctv-item-icon">💾</div>
+            <div>
+              <h4>Grabación sincronizada</h4>
+              <p>Guarda clips automáticamente cuando se acciona una puerta, para tener evidencia visual de cada evento (disponible en la aplicación de la cámara).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">20<span class="stat-unit">K+</span></div>
+        <div class="stat-lbl">Usuarios simultáneos por instalación</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">99<span class="stat-unit">.9%</span></div>
+        <div class="stat-lbl">Disponibilidad garantizada</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">&lt;1<span class="stat-unit">s</span></div>
+        <div class="stat-lbl">Latencia de apertura</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">256<span class="stat-unit">bit</span></div>
+        <div class="stat-lbl">Cifrado AES extremo a extremo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING MODEL STRIP -->
+<div style="padding:48px 0;border-top:1px solid var(--border)">
+  <div class="container">
+    <div style="background:linear-gradient(135deg,#131728,#1a1f35);border:1px solid rgba(232,112,26,.2);border-radius:var(--radius-lg);padding:36px 40px">
+      <!-- Header -->
+      <div style="text-align:center;margin-bottom:32px">
+        <span class="tag">✦ Modelo de precio</span>
+        <p style="margin-top:12px;color:var(--text-muted);font-size:.95rem;max-width:560px;margin-left:auto;margin-right:auto">
+          Una instalación accesible y luego eliges el plan que mejor se adapta a tu comunidad.
+        </p>
+      </div>
+      <!-- Two columns -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start">
+        <!-- Installation -->
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+            <div style="width:42px;height:42px;border-radius:10px;background:var(--orange-dim);border:1px solid rgba(232,112,26,.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🔧</div>
+            <div>
+              <div style="font-weight:800;font-size:1rem">Instalación</div>
+              <div style="font-size:.78rem;color:var(--orange);font-weight:600">Pago único · costo accesible</div>
+            </div>
+          </div>
+          <p style="font-size:.875rem;color:var(--text-muted);line-height:1.65">
+            Incluye el hardware CCTGATE, la configuración del sistema y la puesta en marcha. Se paga una sola vez al contratar el servicio.
+          </p>
+        </div>
+        <!-- License -->
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+            <div style="width:42px;height:42px;border-radius:10px;background:var(--orange-dim);border:1px solid rgba(232,112,26,.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">📋</div>
+            <div>
+              <div style="font-weight:800;font-size:1rem">Licencia de uso</div>
+              <div style="font-size:.78rem;color:var(--orange);font-weight:600">2 modos de cobro · el admin elige</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+            <div style="background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;padding:10px 14px">
+              <div style="font-size:.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">👤 Por usuario</div>
+              <div style="font-size:.8rem;color:var(--text-muted);line-height:1.5">Cada residente paga su propia licencia (semestral o anual)</div>
+            </div>
+            <div style="background:var(--bg-card2);border:1px solid rgba(232,112,26,.25);border-radius:8px;padding:10px 14px">
+              <div style="font-size:.72rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">🏢 Condominio</div>
+              <div style="font-size:.8rem;color:var(--text-muted);line-height:1.5">El condominio paga una suscripción mensual por todos</div>
+            </div>
+          </div>
+          <p style="font-size:.75rem;color:var(--text-muted);line-height:1.5">
+            📷 Se puede agregar cámara CCTV integrada en cualquier modo de cobro.
+          </p>
+        </div>
+      </div>
+      <!-- All plans include -->
+      <div style="margin-top:20px;background:var(--green-dim);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <span style="font-size:.82rem;font-weight:700;color:var(--green)">✓ Todos los planes incluyen:</span>
+        <span style="font-size:.82rem;color:var(--text-muted)">Hasta <strong style="color:var(--text)">20.000 usuarios</strong></span>
+        <span style="color:var(--text-dim)">·</span>
+        <span style="font-size:.82rem;color:var(--text-muted)">Historial de accesos <strong style="color:var(--text)">completo</strong></span>
+        <span style="color:var(--text-dim)">·</span>
+        <span style="font-size:.82rem;color:var(--text-muted)">App <strong style="color:var(--text)">iOS &amp; Android</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="section" id="precios">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">✦ Precios</span>
+      <h2 style="margin-top:18px">Transparente y sin<br /><span>letra chica</span></h2>
+      <p class="section-sub">El condominio paga la instalación una sola vez. Para la licencia de uso, el administrador elige si paga el condominio o cada usuario por separado.</p>
+    </div>
+
+    <!-- BLOQUE 1: INSTALACIÓN -->
+    <div style="margin-bottom:56px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+        <div style="height:1px;flex:1;background:var(--border)"></div>
+        <span style="font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap">🔧 Instalación — pago único por el condominio o propietario</span>
+        <div style="height:1px;flex:1;background:var(--border)"></div>
+      </div>
+      <!-- Requisitos previos -->
+      <div style="background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;max-width:720px;margin:0 auto 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">📋 Requisitos previos para la instalación</div>
+        <div style="display:flex;align-items:flex-start;gap:12px">
+          <span style="font-size:1.1rem;flex-shrink:0">⚙️</span>
+          <div>
+            <span style="font-size:.88rem;font-weight:600;color:var(--text)">Motor eléctrico en el portón</span>
+            <span style="font-size:.85rem;color:var(--text-muted)"> — Compatible con el 100% de los motores del mercado, instalación en paralelo sin modificar el sistema existente.</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px">
+          <span style="font-size:1.1rem;flex-shrink:0">📶</span>
+          <div>
+            <span style="font-size:.88rem;font-weight:600;color:var(--text)">Señal WiFi</span>
+            <span style="font-size:.85rem;color:var(--text-muted)"> — Conectividad WiFi disponible en la zona de instalación del controlador.</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px">
+          <span style="font-size:1.1rem;flex-shrink:0">🔌</span>
+          <div>
+            <span style="font-size:.88rem;font-weight:600;color:var(--text)">Alimentación eléctrica para cámara CCTV</span>
+            <span style="font-size:.85rem;color:var(--text-muted)"> — Solo requerido si se contrata el plan con integración de cámara.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;margin:0 auto">
+        <!-- Sin CCTV -->
+        <div class="price-card">
+          <div class="price-plan">Sin cámara CCTV</div>
+          <div class="price-num">$250.000<span style="font-size:.85rem"> CLP</span></div>
+          <div class="price-desc">Instalación del hardware y configuración inicial del sistema de control de acceso.</div>
+          <div style="background:var(--green-dim);border:1px solid rgba(34,197,94,.25);border-radius:8px;padding:10px 14px;margin:14px 0;display:flex;align-items:flex-start;gap:8px">
+            <span style="color:var(--green);font-size:.9rem;flex-shrink:0;margin-top:1px">✓</span>
+            <span style="font-size:.8rem;color:var(--green);font-weight:600;line-height:1.4">Compatible con cualquier sistema existente — funciona en paralelo a cualquier otro método de apertura actual (control remoto, tarjeta, teclado, etc.) sin reemplazar ni desactivar ninguno.</span>
+          </div>
+          <ul class="price-features">
+            <li>Hardware CCTGATE incluido</li>
+            <li>Configuración y puesta en marcha</li>
+            <li>Sin cámara asociada</li>
+            <li>Soporte de instalación</li>
+            <li>1 cuenta de administrador <strong>gratis</strong></li>
+            <li>Hasta 10 usuarios <strong>gratis</strong></li>
+            <li>Usuario adicional paga licencia</li>
+            <li>Capacidad hasta 20.000 usuarios</li>
+          </ul>
+          <a href="#contacto" class="price-cta price-cta-ghost" style="display:block;text-align:center">Solicitar instalación</a>
+        </div>
+        <!-- Con CCTV -->
+        <div class="price-card highlighted">
+          <div class="price-badge">RECOMENDADO</div>
+          <div class="price-plan">Con cámara CCTV</div>
+          <div class="price-num">$350.000<span style="font-size:.85rem"> CLP</span></div>
+          <div class="price-desc">Instalación completa con integración de cámara para visualización en tiempo real desde la app.</div>
+          <div style="background:var(--green-dim);border:1px solid rgba(34,197,94,.25);border-radius:8px;padding:10px 14px;margin:14px 0;display:flex;align-items:flex-start;gap:8px">
+            <span style="color:var(--green);font-size:.9rem;flex-shrink:0;margin-top:1px">✓</span>
+            <span style="font-size:.8rem;color:var(--green);font-weight:600;line-height:1.4">Compatible con cualquier sistema existente — funciona en paralelo a cualquier otro método de apertura actual (control remoto, tarjeta, teclado, etc.) sin reemplazar ni desactivar ninguno.</span>
+          </div>
+          <ul class="price-features">
+            <li>Hardware CCTGATE incluido</li>
+            <li>Configuración y puesta en marcha</li>
+            <li>1 cámara RTMP por puerta</li>
+            <li>Soporte de instalación</li>
+            <li>1 cuenta de administrador <strong>gratis</strong></li>
+            <li>Cada usuario paga licencia</li>
+            <li>Capacidad hasta 20.000 usuarios</li>
+          </ul>
+          <a href="#contacto" class="price-cta price-cta-fill" style="display:block;text-align:center">Solicitar instalación</a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.78rem;color:var(--text-muted);margin-top:14px;margin-bottom:56px">
+      * Precios válidos para instalaciones en la Región Metropolitana. Para otras regiones, <a href="#contacto" style="color:var(--orange);text-decoration:underline">consultar valor</a>.
+    </p>
+
+    <!-- BLOQUE 2: LICENCIAS -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+        <div style="height:1px;flex:1;background:var(--border)"></div>
+        <span style="font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap">📋 Modo 1: licencia por usuario — cada residente paga la suya</span>
+        <div style="height:1px;flex:1;background:var(--border)"></div>
+      </div>
+      <!-- Included in all -->
+      <div style="background:var(--green-dim);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;max-width:900px;margin-left:auto;margin-right:auto">
+        <span style="font-size:.82rem;font-weight:700;color:var(--green)">✓ Todos los planes incluyen:</span>
+        <span style="font-size:.82rem;color:var(--text-muted)">Hasta <strong style="color:var(--text)">20.000 usuarios</strong></span>
+        <span style="color:var(--text-dim)">·</span>
+        <span style="font-size:.82rem;color:var(--text-muted)"><strong style="color:var(--text)">Historial</strong> completo de accesos</span>
+        <span style="color:var(--text-dim)">·</span>
+        <span style="font-size:.82rem;color:var(--text-muted)">App <strong style="color:var(--text)">iOS &amp; Android</strong></span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:640px;margin:0 auto">
+        <!-- Anual sin CCTV -->
+        <div class="price-card">
+          <div class="price-plan">Anual</div>
+          <div style="font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em">Sin CCTV</div>
+          <div class="price-num">$12.000<span style="font-size:.8rem"> CLP</span></div>
+          <div class="price-desc">Por usuario · cada 12 meses</div>
+          <ul class="price-features" style="margin-top:16px">
+            <li>Control remoto de puerta</li>
+            <li>Historial de accesos</li>
+            <li>App iOS &amp; Android</li>
+            <li class="disabled">Cámara CCTV</li>
+          </ul>
+          <a href="#contacto" class="price-cta price-cta-ghost" style="display:block;text-align:center">Comenzar</a>
+        </div>
+        <!-- Anual con CCTV -->
+        <div class="price-card highlighted">
+          <div class="price-badge">RECOMENDADO</div>
+          <div class="price-plan">Anual</div>
+          <div style="font-size:.72rem;font-weight:600;color:var(--orange);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em">📷 Con CCTV</div>
+          <div class="price-num">$15.000<span style="font-size:.8rem"> CLP</span></div>
+          <div class="price-desc">Por usuario · cada 12 meses</div>
+          <ul class="price-features" style="margin-top:16px">
+            <li>Control remoto de puerta</li>
+            <li>Historial de accesos</li>
+            <li>App iOS &amp; Android</li>
+            <li>Cámara en vivo (1/puerta)</li>
+          </ul>
+          <a href="#contacto" class="price-cta price-cta-fill" style="display:block;text-align:center">Comenzar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOQUE 3: MODO CONDOMINIO -->
+    <div style="margin-top:48px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+        <div style="height:1px;flex:1;background:var(--border)"></div>
+        <span style="font-size:.78rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap">🏢 Modo 2: suscripción condominio — el edificio paga por todos</span>
+        <div style="height:1px;flex:1;background:var(--border)"></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#1a1028,#131728);border:1px solid rgba(232,112,26,.3);border-radius:var(--radius-lg);padding:36px 40px;max-width:860px;margin:0 auto">
+        <!-- Descripción -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-bottom:32px">
+          <div>
+            <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:12px">Un solo pago mensual.<br/>Todos los residentes incluidos.</h3>
+            <p style="font-size:.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:20px">
+              El condominio contrata una suscripción mensual y todos los residentes autorizados pueden usar el sistema sin pagar nada extra. Ideal para comunidades grandes donde la gestión de cobros individuales es difícil.
+            </p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+              <li style="display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--text-muted)">
+                <span style="color:var(--green);font-weight:700;flex-shrink:0">✓</span>
+                Sin que cada residente gestione su propia licencia
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--text-muted)">
+                <span style="color:var(--green);font-weight:700;flex-shrink:0">✓</span>
+                Aviso automático antes del vencimiento con período de gracia configurable
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--text-muted)">
+                <span style="color:var(--green);font-weight:700;flex-shrink:0">✓</span>
+                Compatible con pago mensual, trimestral, semestral o anual
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--text-muted)">
+                <span style="color:var(--green);font-weight:700;flex-shrink:0">✓</span>
+                El administrador puede cambiar de modo en cualquier momento
+              </li>
+            </ul>
+          </div>
+          <div style="font-size:.85rem;color:var(--text-muted);line-height:1.7;padding-top:4px">
+            <p style="margin-bottom:10px">💡 <strong style="color:var(--text)">El valor en UF se actualiza automáticamente</strong> con la UF del mes, por lo que el monto en pesos siempre refleja el precio real.</p>
+            <p>El precio cubre <strong style="color:var(--text)">todas las puertas</strong> del condominio y todos los usuarios activos en ese rango. No hay cobros por puerta adicional.</p>
+          </div>
+        </div>
+        <!-- Tabla de precios -->
+        <div style="overflow-x:auto;border-radius:var(--radius)">
+          <table style="width:100%;border-collapse:collapse;font-size:.88rem">
+            <thead>
+              <tr style="background:rgba(232,112,26,.18)">
+                <th colspan="2" style="padding:10px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(232,112,26,.3)">Usuarios</th>
+                <th style="padding:10px 16px;text-align:center;color:var(--orange);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(232,112,26,.3)">Valor mensual (UF)</th>
+              </tr>
+              <tr style="background:rgba(255,255,255,.04)">
+                <th style="padding:7px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:600;border-bottom:1px solid var(--border)">Desde</th>
+                <th style="padding:7px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:600;border-bottom:1px solid var(--border)">Hasta</th>
+                <th style="padding:7px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:600;border-bottom:1px solid var(--border)"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">20</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">0,5</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">21</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">50</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">1,5</td></tr>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">51</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">100</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">3,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">101</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">200</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">5,5</td></tr>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">201</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">300</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">8,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">301</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">500</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">12,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">501</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">750</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">15,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">751</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.000</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">20,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.001</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.500</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">25,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.501</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">2.000</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">30,0</td></tr>
+              <tr style="background:rgba(232,112,26,.08)"><td style="padding:10px 16px;text-align:center;color:var(--text-muted)">2.001</td><td style="padding:10px 16px;text-align:center;color:var(--text-muted)">Más</td><td style="padding:10px 16px;text-align:center;font-weight:700;color:var(--orange)">Consultar</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="text-align:center;margin-top:24px">
+          <a href="#contacto" class="btn-primary" style="justify-content:center;box-shadow:none">
+            Consultar precio para mi condominio
+          </a>
+          <p style="font-size:.72rem;color:var(--text-dim);margin-top:12px">Disponible con o sin integración de cámara CCTV</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">✦ Preguntas frecuentes</span>
+      <h2 style="margin-top:18px">¿Tienes <span>dudas</span>?</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">¿El condominio puede pagar por todos los residentes? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sí. El administrador puede activar el "modo condominio", donde el edificio paga una suscripción mensual que cubre a todos los residentes autorizados. Los usuarios no necesitan gestionar ni pagar nada por su cuenta. El sistema envía avisos automáticos antes del vencimiento y tiene un período de gracia configurable antes de bloquear el acceso.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Necesito reemplazar mi cerradura o barrera existente? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. CCTGATE se instala en paralelo a tu sistema existente. El módulo se conecta a la salida de relé de tu cerradura eléctrica, barrera o torniquete actual. No es necesario reemplazar ningún hardware.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué pasa si se va internet? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">El sistema cuenta con una red WiFi de respaldo. Si el internet principal cae, puedes compartir datos desde tu celular creando un hotspot con el nombre y contraseña que tú definas durante la instalación. El módulo se conectará automáticamente a esta red secundaria, permitiéndote seguir operando el portón con normalidad.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué cámaras son compatibles? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Cualquier cámara IP que soporte el protocolo RTMP. Hemos probado con Hikvision, Dahua, Reolink, Uniview y TP-Link Tapo, entre otras.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Cómo instalo la app en mi celular? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">CCTGATE funciona como una aplicación normal en tu celular, pero se instala directamente desde el navegador (sin pasar por App Store ni Google Play). En Android se hace desde Chrome usando "Instalar aplicación", y en iPhone desde Safari usando "Añadir a pantalla de inicio". Tenemos una <a href="instalar.html" style="color:var(--orange);text-decoration:underline">guía completa paso a paso con imágenes</a> para Android e iPhone.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Cómo se gestionan 20.000 usuarios? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">La gestión de usuarios es exclusiva del administrador de la puerta, quien puede hacerlo desde el panel web o la app móvil. Los usuarios se pueden agregar de forma individual o mediante carga masiva a través de una planilla Excel. Los usuarios normales no tienen permisos para autorizar ni gestionar a otros usuarios.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Los datos son seguros? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sí. Toda la comunicación se cifra con AES-256 y TLS 1.3. Los tokens de autenticación expiran automáticamente. Los datos se alojan en servidores certificados ISO 27001 con copias de seguridad diarias.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL / CONTACTO -->
+<section class="cta-section" id="contacto">
+  <div class="container">
+    <div class="cta-box" style="max-width:640px;margin:0 auto;text-align:left">
+      <span class="tag" style="margin-bottom:20px;display:inline-flex">✦ Contáctanos</span>
+      <h2 style="text-align:center">¿Listo para controlar tu acceso de forma <span style="color:var(--orange)">inteligente</span>?</h2>
+      <p style="text-align:center;margin-bottom:32px">Completa el formulario y nos ponemos en contacto contigo a la brevedad.</p>
+
+      <form id="contactForm" onsubmit="submitForm(event)" style="display:flex;flex-direction:column;gap:14px;position:relative;z-index:1">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div>
+            <label style="font-size:.78rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px">Nombre *</label>
+            <input type="text" name="nombre" required placeholder="Tu nombre"
+              style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='rgba(232,112,26,.5)'" onblur="this.style.borderColor='var(--border)'">
+          </div>
+          <div>
+            <label style="font-size:.78rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px">Teléfono</label>
+            <input type="tel" name="telefono" placeholder="+56 9 1234 5678"
+              style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='rgba(232,112,26,.5)'" onblur="this.style.borderColor='var(--border)'">
+          </div>
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px">Correo electrónico *</label>
+          <input type="email" name="email" required placeholder="tucorreo@email.com"
+            style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;outline:none;transition:border-color .2s"
+            onfocus="this.style.borderColor='rgba(232,112,26,.5)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div>
+            <label style="font-size:.78rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px">Ciudad *</label>
+            <input type="text" name="ciudad" required placeholder="Ej. Santiago"
+              style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='rgba(232,112,26,.5)'" onblur="this.style.borderColor='var(--border)'">
+          </div>
+          <div>
+            <label style="font-size:.78rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px">Comuna *</label>
+            <input type="text" name="comuna" required placeholder="Ej. Las Condes"
+              style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='rgba(232,112,26,.5)'" onblur="this.style.borderColor='var(--border)'">
+          </div>
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px">Cantidad aproximada de usuarios *</label>
+          <input type="number" name="usuarios" required min="1" placeholder="Ej. 80"
+            style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;outline:none;transition:border-color .2s"
+            onfocus="this.style.borderColor='rgba(232,112,26,.5)'" onblur="this.style.borderColor='var(--border)'"
+            oninput="actualizarPlan(this.value)">
+          <p id="instalacion-hint" style="font-size:.75rem;margin-top:6px;color:var(--text-muted);min-height:18px"></p>
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px">Plan de interés</label>
+          <select name="plan" id="plan-select"
+            style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;outline:none;cursor:pointer">
+            <option value="" style="background:#131728">Selecciona un plan...</option>
+            <optgroup label="── Sin cámara CCTV" style="background:#131728">
+              <option value="inst-sin-cctv" style="background:#131728">Instalación sin CCTV — $250.000</option>
+              <option value="inst-sin-cctv-gratis" style="background:#131728">✅ Instalación sin CCTV — GRATIS (condominio +50 usuarios)</option>
+            </optgroup>
+            <optgroup label="── Con cámara CCTV" style="background:#131728">
+              <option value="inst-con-cctv" style="background:#131728">Instalación con CCTV — $350.000</option>
+              <option value="inst-con-cctv-gratis" style="background:#131728">✅ Instalación con CCTV — GRATIS (condominio +50 usuarios)</option>
+            </optgroup>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px">Mensaje</label>
+          <textarea name="mensaje" rows="3" placeholder="Cuéntanos sobre tu instalación, cantidad de puertas, si ya tienes motor eléctrico, etc."
+            style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.9rem;outline:none;resize:vertical;transition:border-color .2s;font-family:inherit"
+            onfocus="this.style.borderColor='rgba(232,112,26,.5)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="font-size:1rem;padding:15px;justify-content:center;width:100%">
+          📩 Enviar solicitud
+        </button>
+        <div id="formMsg" style="display:none;text-align:center;font-size:.85rem;padding:10px;border-radius:8px"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="font-size:1.1rem">
+          <img src="logo-cctgate.png" alt="CCTGATE" style="width:32px;height:32px;object-fit:contain" />
+          CCTGATE
+        </div>
+        <p>Control de acceso remoto diseñado para condominios y comunidades. También funciona para empresas, bodegas y cualquier puerta que necesites controlar.</p>
+        <p style="margin-top:10px;font-size:.78rem;color:var(--text-dim)">🌐 Empresa 100% virtual — atención y soporte en línea.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <ul>
+          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#camara">Integración CCTV</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="instalar.html">Instalar la app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="legal.html#privacidad">Privacidad</a></li>
+          <li><a href="legal.html#terminos">Términos de uso</a></li>
+          <li><a href="legal.html#seguridad">Seguridad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CCTGATE. Todos los derechos reservados.</p>
+      <div class="footer-socials">
+        <div class="social-btn" title="Twitter/X">𝕏</div>
+        <div class="social-btn" title="LinkedIn">in</div>
+        <div class="social-btn" title="GitHub">⌥</div>
+        <div class="social-btn" title="Instagram">◎</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON — deshabilitado temporalmente, habilitar cuando esté listo -->
+<!--
+<a href="https://wa.me/56975978604?text=Hola%2C%20me%20interesa%20CCTGATE%20para%20control%20de%20acceso"
+   target="_blank"
+   rel="noopener"
+   class="wa-fab"
+   aria-label="Contactar por WhatsApp">
+  <span class="wa-fab-icon" aria-hidden="true">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#fff" d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16.001c0 2.257.594 4.464 1.722 6.41L3.2 28.8l6.539-1.713a12.768 12.768 0 006.262 1.594h.006c7.06 0 12.8-5.74 12.802-12.801 0-3.42-1.331-6.635-3.748-9.054A12.715 12.715 0 0016.001 3.2zm0 23.36h-.005a10.611 10.611 0 01-5.404-1.48l-.387-.23-4.025 1.055 1.075-3.923-.252-.402a10.624 10.624 0 01-1.628-5.679C5.376 10.13 10.139 5.366 16 5.366c2.842.001 5.512 1.109 7.52 3.12a10.575 10.575 0 013.115 7.52c-.003 5.871-4.766 10.554-10.634 10.554zm5.835-7.93c-.32-.16-1.892-.933-2.184-1.04-.292-.107-.504-.16-.717.16-.213.32-.823 1.04-1.009 1.253-.186.213-.372.24-.692.08-.32-.16-1.35-.498-2.572-1.587-.95-.847-1.591-1.893-1.778-2.213-.186-.32-.02-.493.14-.652.144-.143.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08-.16-.717-1.733-.983-2.373-.259-.622-.522-.538-.717-.547-.186-.009-.4-.011-.613-.011-.213 0-.56.08-.852.4-.293.32-1.12 1.093-1.12 2.666 0 1.573 1.146 3.094 1.306 3.307.16.213 2.258 3.448 5.471 4.834.764.33 1.36.526 1.825.673.766.243 1.464.21 2.015.127.615-.092 1.892-.773 2.158-1.519.266-.745.266-1.385.186-1.518-.08-.133-.293-.213-.613-.373z"/>
+    </svg>
+  </span>
+  <span>Chatea por WhatsApp</span>
+</a>
+-->
+
+<!-- VIDEO MODAL -->
+<div class="video-modal-overlay" id="videoModal" onclick="closeVideoModal(event)">
+  <div class="video-modal">
+    <button class="video-modal-close" onclick="closeVideoModal()">✕</button>
+    <video id="demoVideo" controls playsinline preload="none">
+      <source src="Grabación 2026-05-12 104646 CCTGATE.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+  </div>
+</div>
+
+<!-- JS: FAQ toggle -->
+<script>
+  function actualizarPlan(val) {
+    const n = parseInt(val) || 0;
+    const hint = document.getElementById('instalacion-hint');
+    const select = document.getElementById('plan-select');
+    if (n >= 50) {
+      hint.innerHTML = '🎁 <strong style="color:#22c55e">¡Instalación gratis!</strong> Tu condominio califica por tener más de 50 usuarios.';
+      if (!select.value.includes('gratis')) {
+        select.value = 'inst-sin-cctv-gratis';
+      }
+    } else if (n > 0) {
+      hint.innerHTML = 'Con menos de 50 usuarios la instalación tiene costo. <a href="#precios" style="color:var(--orange);text-decoration:underline">Ver precios</a>.';
+      if (select.value.includes('gratis')) {
+        select.value = 'inst-sin-cctv';
+      }
+    } else {
+      hint.innerHTML = '';
+    }
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const msg  = document.getElementById('formMsg');
+    const btn  = form.querySelector('button[type="submit"]');
+    const data = new FormData(form);
+
+    const payload = {
+      nombre:   data.get('nombre') || '',
+      telefono: data.get('telefono') || 'No indicado',
+      email:    data.get('email') || '',
+      ciudad:   data.get('ciudad') || '',
+      comuna:   data.get('comuna') || '',
+      usuarios: data.get('usuarios') || 'No indicado',
+      plan:     data.get('plan') || 'No indicado',
+      mensaje:  data.get('mensaje') || 'Sin mensaje',
+      _subject: `Solicitud CCTGATE — ${data.get('nombre')}`,
+      _captcha: 'false'
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    fetch('https://formsubmit.co/ajax/formulario@cctgate.cl', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(r => r.json())
+    .then(res => {
+      msg.style.display = 'block';
+      if (res.success === 'true' || res.success === true) {
+        msg.style.background = 'var(--green-dim)';
+        msg.style.border = '1px solid rgba(34,197,94,.25)';
+        msg.style.color = 'var(--green)';
+        msg.textContent = '✓ Mensaje enviado correctamente. Te contactaremos a la brevedad.';
+        form.reset();
+        document.getElementById('instalacion-hint').textContent = '';
+      } else {
+        throw new Error('error');
+      }
+    })
+    .catch(() => {
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(231,76,60,.15)';
+      msg.style.border = '1px solid rgba(231,76,60,.3)';
+      msg.style.color = '#e74c3c';
+      msg.textContent = 'Error al enviar. Escríbenos directamente a ventas@cctgate.cl';
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.textContent = '📩 Enviar solicitud';
+    });
+  }
+
+  function openVideoModal() {
+    document.getElementById('videoModal').classList.add('open');
+    document.getElementById('demoVideo').play();
+  }
+  function closeVideoModal(e) {
+    if (e && e.target !== document.getElementById('videoModal')) return;
+    const modal = document.getElementById('videoModal');
+    modal.classList.remove('open');
+    const v = document.getElementById('demoVideo');
+    v.pause();
+    v.currentTime = 0;
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Smooth appear on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.feature-card, .price-card, .stat-card, .step').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

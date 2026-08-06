@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal — CCTGATE | Privacidad, Términos y Seguridad</title>
+  <meta name="description" content="Política de Privacidad, Términos de Uso y Política de Seguridad de CCTGATE. Cumplimiento con la Ley N° 19.628 y la nueva Ley N° 21.719 de protección de datos personales en Chile." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0c0f1a" />
+  <link rel="canonical" href="https://cctgate.cl/legal.html" />
+  <link rel="icon" type="image/png" href="logo-cctgate.png" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Legal — CCTGATE" />
+  <meta property="og:description" content="Política de Privacidad, Términos de Uso y Seguridad de CCTGATE." />
+  <meta property="og:image" content="https://cctgate.cl/logo-cctgate.png" />
+  <meta property="og:locale" content="es_CL" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!--
+    ╔═══════════════════════════════════════════════════════════════════╗
+    ║  Este documento es una plantilla de base. Antes de publicar,       ║
+    ║  recomendamos revisión por abogado especialista en protección de   ║
+    ║  datos y derecho de consumo en Chile.                              ║
+    ╚═══════════════════════════════════════════════════════════════════╝
+  -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:         #0c0f1a;
+      --bg-card:    #131728;
+      --bg-card2:   #1a1f35;
+      --border:     rgba(255,255,255,.07);
+      --orange:     #e8701a;
+      --orange-h:   #ff8533;
+      --orange-dim: rgba(232,112,26,.15);
+      --green:      #22c55e;
+      --green-dim:  rgba(34,197,94,.12);
+      --text:       #f0f4ff;
+      --text-muted: #8892aa;
+      --text-dim:   #3d4a6a;
+      --radius:     14px;
+      --radius-lg:  22px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    a { color: var(--orange); text-decoration: none; transition: color .15s; }
+    a:hover { color: var(--orange-h); text-decoration: underline; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--text-dim); border-radius: 3px; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(12,15,26,.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 1.2rem; letter-spacing: -.02em;
+      color: var(--text);
+    }
+    .nav-logo:hover { color: var(--text); text-decoration: none; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-muted); font-weight: 600; font-size: .9rem;
+      padding: 8px 16px; border: 1px solid var(--border); border-radius: 10px;
+      transition: border-color .2s, color .2s;
+    }
+    .nav-back:hover { color: var(--text); border-color: rgba(255,255,255,.2); text-decoration: none; }
+
+    /* HERO */
+    .legal-hero {
+      padding: 80px 0 40px;
+      border-bottom: 1px solid var(--border);
+      background: radial-gradient(ellipse at top, rgba(232,112,26,.08), transparent 60%);
+    }
+    .legal-hero .tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--orange-dim); color: var(--orange);
+      border: 1px solid rgba(232,112,26,.3); border-radius: 999px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; padding: 5px 14px;
+    }
+    .legal-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800; letter-spacing: -.025em; line-height: 1.15;
+      margin: 20px 0 16px;
+    }
+    .legal-hero h1 span { color: var(--orange); }
+    .legal-hero p { color: var(--text-muted); max-width: 720px; font-size: 1.05rem; }
+    .legal-updated {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card2); border: 1px solid var(--border);
+      border-radius: 999px; padding: 6px 14px; margin-top: 24px;
+      font-size: .82rem; color: var(--text-muted);
+    }
+    .legal-updated strong { color: var(--text); }
+
+    /* LAYOUT */
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
+      padding: 56px 0 80px;
+    }
+    @media (max-width: 900px) {
+      .legal-layout { grid-template-columns: 1fr; gap: 32px; padding: 32px 0 60px; }
+    }
+
+    /* SIDEBAR */
+    aside {
+      position: sticky; top: 96px; align-self: start;
+      max-height: calc(100vh - 120px); overflow-y: auto;
+    }
+    @media (max-width: 900px) {
+      aside { position: static; max-height: none; border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; background: var(--bg-card); }
+    }
+    .toc-title {
+      font-size: .72rem; font-weight: 700; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 14px;
+    }
+    .toc {
+      list-style: none; display: flex; flex-direction: column; gap: 4px;
+    }
+    .toc a {
+      display: block; padding: 8px 12px; border-radius: 8px;
+      color: var(--text-muted); font-size: .88rem; font-weight: 500;
+      transition: background .15s, color .15s;
+    }
+    .toc a:hover { background: var(--bg-card); color: var(--text); text-decoration: none; }
+    .toc-sub {
+      list-style: none; margin: 4px 0 4px 16px;
+      border-left: 1px solid var(--border);
+      padding-left: 12px;
+    }
+    .toc-sub a {
+      padding: 5px 10px; font-size: .82rem;
+    }
+
+    /* CONTENT */
+    article {
+      max-width: 780px;
+      min-width: 0;
+    }
+    .legal-section {
+      padding-top: 16px;
+      scroll-margin-top: 90px;
+    }
+    .legal-section + .legal-section {
+      margin-top: 72px;
+      padding-top: 56px;
+      border-top: 1px solid var(--border);
+    }
+    .legal-section h2 {
+      font-size: 1.8rem; font-weight: 800; letter-spacing: -.02em;
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .legal-section h2 .num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--orange-dim); color: var(--orange);
+      border: 1px solid rgba(232,112,26,.3);
+      font-size: 1rem; font-weight: 800;
+    }
+    .legal-section h3 {
+      scroll-margin-top: 90px;
+      font-size: 1.15rem; font-weight: 700;
+      margin: 36px 0 12px;
+      color: var(--text);
+    }
+    .legal-section h4 {
+      font-size: .98rem; font-weight: 700;
+      margin: 20px 0 8px; color: var(--text);
+    }
+    .legal-section p {
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .legal-section strong { color: var(--text); font-weight: 600; }
+    .legal-section ul, .legal-section ol {
+      color: var(--text-muted);
+      margin: 0 0 16px 22px;
+    }
+    .legal-section li { margin-bottom: 8px; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 18px 0;
+    }
+    .callout strong { color: var(--text); }
+    .callout-info { border-left-color: #3b82f6; }
+    .callout-warn { border-left-color: #f59e0b; }
+    .callout-ok   { border-left-color: var(--green); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: .9rem;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    th { background: var(--bg-card2); color: var(--text); font-weight: 700; font-size: .82rem; }
+    tr:last-child td { border-bottom: none; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      color: var(--text-muted);
+      font-size: .85rem;
+    }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+
+    /* Print friendly */
+    @media print {
+      body { background: white; color: black; font-size: 11pt; }
+      nav, aside, footer, .legal-hero { background: none !important; color: black !important; }
+      .legal-hero { padding: 20px 0 10px; border-bottom: 1px solid #ccc; }
+      .legal-layout { grid-template-columns: 1fr; }
+      a { color: black; text-decoration: underline; }
+      .callout { border: 1px solid #ccc !important; background: #f8f8f8 !important; }
+      .legal-section h2 .num { background: #eee !important; color: #333 !important; border: 1px solid #ccc !important; }
+      h2, h3, h4 { color: black !important; }
+      p, li, td, th { color: #222 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="landing.html" class="nav-logo">
+        <img src="logo-cctgate.png" alt="CCTGATE" style="width:36px;height:36px;object-fit:contain" />
+        CCTGATE
+      </a>
+      <a href="landing.html" class="nav-back">← Volver al sitio</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="legal-hero">
+  <div class="container">
+    <span class="tag">✦ Documentos legales</span>
+    <h1>Información <span>legal</span> y de cumplimiento</h1>
+    <p>Aquí encontrarás nuestra Política de Privacidad, los Términos y Condiciones de uso del servicio y la Política de Seguridad de CCTGATE. Estos documentos rigen la relación entre I2R SPA y quienes contratan o utilizan nuestros servicios.</p>
+    <div class="legal-updated">
+      📅 Última actualización: <strong>15 de mayo de 2026</strong>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+  <div class="legal-layout">
+
+    <!-- TOC SIDEBAR -->
+    <aside>
+      <div class="toc-title">📋 Índice</div>
+      <ul class="toc">
+        <li><a href="#privacidad"><strong>1. Política de Privacidad</strong></a>
+          <ul class="toc-sub">
+            <li><a href="#priv-responsable">1.1 Responsable</a></li>
+            <li><a href="#priv-datos">1.2 Datos que recolectamos</a></li>
+            <li><a href="#priv-finalidades">1.3 Finalidades</a></li>
+            <li><a href="#priv-base">1.4 Base legal</a></li>
+            <li><a href="#priv-conservacion">1.5 Conservación</a></li>
+            <li><a href="#priv-terceros">1.6 Encargados / terceros</a></li>
+            <li><a href="#priv-transferencias">1.7 Transferencias internacionales</a></li>
+            <li><a href="#priv-derechos">1.8 Tus derechos</a></li>
+            <li><a href="#priv-cookies">1.9 Cookies</a></li>
+            <li><a href="#priv-cambios">1.10 Cambios</a></li>
+          </ul>
+        </li>
+        <li><a href="#terminos"><strong>2. Términos y Condiciones</strong></a>
+          <ul class="toc-sub">
+            <li><a href="#term-aceptacion">2.1 Aceptación</a></li>
+            <li><a href="#term-servicio">2.2 Descripción del servicio</a></li>
+            <li><a href="#term-cuenta">2.3 Cuenta y responsabilidades</a></li>
+            <li><a href="#term-hardware">2.4 Hardware e instalación</a></li>
+            <li><a href="#term-licencia">2.5 Licencia de uso</a></li>
+            <li><a href="#term-pago">2.6 Pagos y facturación</a></li>
+            <li><a href="#term-cancelacion">2.7 Cancelación</a></li>
+            <li><a href="#term-restricciones">2.8 Restricciones</a></li>
+            <li><a href="#term-responsabilidad">2.9 Limitación de responsabilidad</a></li>
+            <li><a href="#term-modificaciones">2.10 Modificaciones</a></li>
+            <li><a href="#term-jurisdiccion">2.11 Ley y jurisdicción</a></li>
+          </ul>
+        </li>
+        <li><a href="#seguridad"><strong>3. Política de Seguridad</strong></a>
+          <ul class="toc-sub">
+            <li><a href="#seg-cifrado">3.1 Cifrado</a></li>
+            <li><a href="#seg-autenticacion">3.2 Autenticación</a></li>
+            <li><a href="#seg-infraestructura">3.3 Infraestructura</a></li>
+            <li><a href="#seg-acceso">3.4 Control de acceso interno</a></li>
+            <li><a href="#seg-respaldos">3.5 Respaldos</a></li>
+            <li><a href="#seg-incidentes">3.6 Incidentes</a></li>
+            <li><a href="#seg-disclosure">3.7 Reporte responsable</a></li>
+          </ul>
+        </li>
+        <li><a href="#contacto-legal"><strong>4. Contacto</strong></a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <article>
+
+      <!-- ════════ PRIVACIDAD ════════ -->
+      <section id="privacidad" class="legal-section">
+        <h2><span class="num">1</span> Política de Privacidad</h2>
+
+        <p>En CCTGATE valoramos tu privacidad y nos comprometemos a proteger los datos personales que nos confías. Esta Política describe qué datos recolectamos, con qué finalidad, cómo los protegemos y cuáles son tus derechos como titular, en cumplimiento de la <strong>Ley N° 19.628 sobre Protección de la Vida Privada</strong> y la <strong>Ley N° 21.719</strong> que regula la protección y el tratamiento de los datos personales en Chile.</p>
+
+        <h3 id="priv-responsable">1.1 Responsable del tratamiento</h3>
+        <p>El responsable del tratamiento de los datos personales recogidos a través de la plataforma CCTGATE es:</p>
+        <div class="callout">
+          <strong>I2R SPA</strong><br>
+          RUT: 77.074.946-8<br>
+          Santiago, Chile<br>
+          Email para asuntos de privacidad: <a href="mailto:privacidad@cctgate.cl">privacidad@cctgate.cl</a><br>
+          Email general: <a href="mailto:ventas@cctgate.cl">ventas@cctgate.cl</a>
+        </div>
+
+        <h3 id="priv-datos">1.2 Datos personales que recolectamos</h3>
+        <p>Recolectamos únicamente los datos necesarios para la prestación del servicio. Estos son:</p>
+
+        <h4>a) Datos del Cliente (administrador / titular del contrato)</h4>
+        <ul>
+          <li>Nombre, RUT o identificación tributaria.</li>
+          <li>Razón social, dirección de instalación, contacto comercial.</li>
+          <li>Email, teléfono y datos de facturación.</li>
+          <li>Datos de pago (procesados directamente por la pasarela de pago — no almacenamos números de tarjeta).</li>
+        </ul>
+
+        <h4>b) Datos de los Usuarios finales (residentes, empleados, etc.)</h4>
+        <ul>
+          <li>Nombre, email y/o teléfono asociados a la cuenta.</li>
+          <li>Identificadores únicos del dispositivo y tokens de sesión.</li>
+          <li>Eventos de apertura (fecha, hora, puerta, identificador del usuario).</li>
+        </ul>
+
+        <h4>c) Datos técnicos y de uso</h4>
+        <ul>
+          <li>Dirección IP, tipo de dispositivo, navegador, sistema operativo.</li>
+          <li>Registros (logs) de actividad y eventos del sistema.</li>
+          <li>Streams de video de las cámaras CCTV asociadas (solo si se contrata el plan con CCTV).</li>
+        </ul>
+
+        <h4>d) Datos del formulario de contacto</h4>
+        <ul>
+          <li>Nombre, email, teléfono opcional, plan de interés y mensaje libre.</li>
+        </ul>
+
+        <h3 id="priv-finalidades">1.3 Finalidades del tratamiento</h3>
+        <p>Tratamos los datos exclusivamente para:</p>
+        <ul>
+          <li>Prestar el servicio de control de acceso y visualización CCTV contratado.</li>
+          <li>Autenticar usuarios y permitir la apertura remota de accesos.</li>
+          <li>Mantener el registro histórico de accesos solicitado por el administrador.</li>
+          <li>Facturar, cobrar y emitir documentos tributarios.</li>
+          <li>Brindar soporte técnico y comunicar incidencias.</li>
+          <li>Mejorar la calidad del servicio y prevenir abusos o fraude.</li>
+          <li>Cumplir con obligaciones legales aplicables.</li>
+        </ul>
+        <p>No utilizamos los datos para fines de publicidad de terceros, perfilamiento comercial ni los vendemos a nadie.</p>
+
+        <h3 id="priv-base">1.4 Base legal del tratamiento</h3>
+        <p>El tratamiento se ampara en:</p>
+        <ul>
+          <li><strong>Ejecución del contrato</strong>: para los datos necesarios para prestar el servicio contratado.</li>
+          <li><strong>Consentimiento</strong> del titular: para datos opcionales (por ejemplo, comunicaciones comerciales).</li>
+          <li><strong>Cumplimiento de obligaciones legales</strong>: facturación, contabilidad, requerimientos de autoridad competente.</li>
+          <li><strong>Interés legítimo</strong>: prevención de fraude, seguridad del servicio y mejora del producto.</li>
+        </ul>
+
+        <h3 id="priv-conservacion">1.5 Plazos de conservación</h3>
+        <table>
+          <thead>
+            <tr><th>Tipo de dato</th><th>Plazo de conservación</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Datos de cuenta y contrato</td><td>Mientras dure la relación contractual + 5 años por obligaciones tributarias</td></tr>
+            <tr><td>Registros de acceso (historial)</td><td>12 meses por defecto, configurable por el administrador</td></tr>
+            <tr><td>Video CCTV en vivo</td><td>No se almacena de forma persistente salvo grabación expresa</td></tr>
+            <tr><td>Grabaciones CCTV (si aplica)</td><td>Plazo definido por el administrador, máximo 30 días por defecto</td></tr>
+            <tr><td>Logs técnicos y de seguridad</td><td>90 días</td></tr>
+            <tr><td>Formulario de contacto</td><td>24 meses tras última interacción</td></tr>
+          </tbody>
+        </table>
+        <p>Transcurridos estos plazos, los datos se eliminan o anonimizan de forma irreversible, salvo obligación legal de mantenerlos por mayor tiempo.</p>
+
+        <h3 id="priv-terceros">1.6 Encargados del tratamiento y terceros</h3>
+        <p>Para prestar el servicio nos apoyamos en proveedores tecnológicos que actúan como <em>encargados del tratamiento</em>. Estos terceros tratan los datos únicamente bajo nuestras instrucciones y con compromisos contractuales de confidencialidad y seguridad:</p>
+        <table>
+          <thead>
+            <tr><th>Proveedor</th><th>Función</th><th>Ubicación</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Google LLC (Firebase / Google Cloud)</td><td>Hosting, base de datos, autenticación</td><td>EE.UU. / regiones GCP</td></tr>
+            <tr><td>Pasarela de pago (a definir)</td><td>Procesamiento de pagos</td><td>Chile / Internacional</td></tr>
+            <tr><td>Proveedor de email</td><td>Envío de notificaciones transaccionales</td><td>Internacional</td></tr>
+          </tbody>
+        </table>
+        <p>No compartimos tus datos personales con terceros con fines comerciales. Únicamente podremos divulgarlos cuando lo exija una autoridad competente o una norma legal aplicable.</p>
+
+        <h3 id="priv-transferencias">1.7 Transferencias internacionales</h3>
+        <p>Algunos de nuestros proveedores (como Google Cloud / Firebase) procesan datos en servidores ubicados fuera de Chile, principalmente en Estados Unidos y en la Unión Europea. En esos casos exigimos a los proveedores que cuenten con medidas de seguridad equivalentes a las requeridas por la legislación chilena (incluidas, cuando aplican, cláusulas contractuales tipo y certificaciones internacionales como ISO 27001 o SOC 2).</p>
+
+        <h3 id="priv-derechos">1.8 Tus derechos como titular</h3>
+        <p>Conforme a la Ley 19.628 y la Ley 21.719, puedes ejercer en cualquier momento los siguientes derechos sobre tus datos personales:</p>
+        <ul>
+          <li><strong>Acceso</strong>: conocer qué datos tuyos tratamos.</li>
+          <li><strong>Rectificación</strong>: corregir datos inexactos o desactualizados.</li>
+          <li><strong>Cancelación / supresión</strong>: solicitar el borrado de tus datos cuando ya no sean necesarios.</li>
+          <li><strong>Oposición</strong>: oponerte al tratamiento por motivos legítimos.</li>
+          <li><strong>Portabilidad</strong>: obtener tus datos en un formato estructurado y de uso común.</li>
+          <li><strong>Bloqueo</strong>: suspender temporalmente el tratamiento.</li>
+        </ul>
+        <p>Para ejercer cualquiera de estos derechos, escríbenos a <a href="mailto:privacidad@cctgate.cl">privacidad@cctgate.cl</a> identificándote con tu nombre y RUT. Te responderemos en un plazo máximo de <strong>15 días hábiles</strong>.</p>
+        <p>Si consideras que no se han respetado tus derechos, puedes presentar un reclamo ante la <strong>Agencia de Protección de Datos Personales</strong> (una vez constituida según la Ley 21.719) o ante el Tribunal de Letras competente.</p>
+
+        <h3 id="priv-cookies">1.9 Uso de cookies y tecnologías similares</h3>
+        <p>El sitio web cctgate.cl utiliza cookies estrictamente necesarias para su funcionamiento (sesión, preferencias) y, opcionalmente, cookies analíticas para entender el uso del sitio. Estas últimas solo se activan si das tu consentimiento.</p>
+        <p>Puedes configurar tu navegador para bloquear cookies, aunque algunas funciones del sitio podrían dejar de funcionar correctamente.</p>
+
+        <h3 id="priv-cambios">1.10 Cambios en esta política</h3>
+        <p>Podemos actualizar esta Política de Privacidad para reflejar cambios legales o de servicio. La fecha de la última actualización se indica al inicio de este documento. Si los cambios son materiales, te lo notificaremos por email o mediante aviso destacado en la plataforma con al menos <strong>30 días de antelación</strong>.</p>
+      </section>
+
+      <!-- ════════ TÉRMINOS ════════ -->
+      <section id="terminos" class="legal-section">
+        <h2><span class="num">2</span> Términos y Condiciones de Uso</h2>
+
+        <p>Estos Términos y Condiciones (en adelante, los <strong>"Términos"</strong>) regulan el acceso y uso del servicio CCTGATE, prestado por <strong>I2R SPA</strong>, RUT 77.074.946-8, Santiago, Chile (en adelante, <strong>"CCTGATE"</strong> o <strong>"nosotros"</strong>).</p>
+
+        <h3 id="term-aceptacion">2.1 Aceptación</h3>
+        <p>Al contratar el servicio, crear una cuenta o utilizar la plataforma, el Cliente declara haber leído, comprendido y aceptado estos Términos. Si no estás de acuerdo, debes abstenerte de utilizar el servicio.</p>
+
+        <h3 id="term-servicio">2.2 Descripción del servicio</h3>
+        <p>CCTGATE es una plataforma de control de acceso remoto que permite:</p>
+        <ul>
+          <li>Abrir puertas, barreras o torniquetes a distancia desde aplicación móvil o web.</li>
+          <li>Gestionar usuarios autorizados y sus permisos.</li>
+          <li>Consultar el historial de aperturas.</li>
+          <li>Visualizar el stream en vivo de cámaras CCTV compatibles (en el plan que lo incluya).</li>
+        </ul>
+        <p>El servicio se presta mediante un módulo controlador físico (hardware) y una plataforma cloud (software como servicio).</p>
+
+        <h3 id="term-cuenta">2.3 Cuenta y responsabilidades del Cliente</h3>
+        <ul>
+          <li>El Cliente debe proporcionar información veraz, exacta y actualizada al momento de contratar.</li>
+          <li>El Cliente es responsable de mantener la confidencialidad de sus credenciales de acceso y de toda actividad realizada desde su cuenta.</li>
+          <li>El Cliente designará uno o más administradores autorizados para gestionar usuarios. Solo los administradores podrán agregar, editar o eliminar usuarios y permisos.</li>
+          <li>El Cliente se compromete a notificar de inmediato cualquier uso no autorizado o sospechoso de su cuenta a <a href="mailto:ventas@cctgate.cl">ventas@cctgate.cl</a>.</li>
+        </ul>
+
+        <h3 id="term-hardware">2.4 Hardware e instalación</h3>
+        <p>El módulo controlador CCTGATE se entrega y se instala como parte del servicio inicial. La propiedad del hardware queda con el Cliente una vez pagada la instalación. Sin embargo:</p>
+        <ul>
+          <li>El firmware y software embebido se entregan bajo licencia de uso (ver sección 2.5) y siguen siendo propiedad de CCTGATE.</li>
+          <li>El Cliente debe contar con los <strong>requisitos previos</strong> indicados en nuestra página de precios: motor eléctrico operativo, señal WiFi en la zona de instalación y, si corresponde, alimentación eléctrica para la cámara.</li>
+          <li>La garantía del hardware es de <strong>12 meses</strong> desde la fecha de instalación, cubriendo defectos de fabricación. No cubre daños por mal uso, manipulación, descargas eléctricas, vandalismo, fenómenos naturales ni alteraciones no autorizadas.</li>
+          <li>Cualquier intervención sobre el módulo no realizada por personal autorizado por CCTGATE invalida la garantía.</li>
+        </ul>
+
+        <h3 id="term-licencia">2.5 Licencia de uso del software</h3>
+        <p>CCTGATE otorga al Cliente y a sus usuarios autorizados una licencia <strong>no exclusiva, intransferible, revocable y limitada</strong> para utilizar la plataforma durante la vigencia del plan contratado, exclusivamente con los fines descritos en estos Términos. Queda prohibido:</p>
+        <ul>
+          <li>Realizar ingeniería inversa, descompilar o intentar acceder al código fuente.</li>
+          <li>Revender, sublicenciar o redistribuir el servicio a terceros.</li>
+          <li>Eliminar avisos de propiedad intelectual o de marca.</li>
+          <li>Utilizar la plataforma para fines ilícitos, fraudulentos o contrarios a la moral.</li>
+        </ul>
+
+        <h3 id="term-pago">2.6 Precios, pagos y facturación</h3>
+        <ul>
+          <li>El servicio se compone de un <strong>pago único por instalación</strong> y una <strong>licencia de uso por usuario</strong>, según los planes vigentes publicados en cctgate.cl.</li>
+          <li>Los precios se expresan en pesos chilenos (CLP) e incluyen los impuestos aplicables salvo indicación expresa en contrario.</li>
+          <li>La licencia de uso se renueva automáticamente al vencimiento del periodo contratado (semestral o anual), salvo cancelación previa con al menos 15 días de antelación.</li>
+          <li>CCTGATE se reserva el derecho a actualizar los precios. Cualquier modificación se comunicará con al menos <strong>30 días de antelación</strong> y aplicará desde la siguiente renovación.</li>
+          <li>El no pago de la licencia podrá conllevar la suspensión del servicio asociado al usuario o usuarios impagos.</li>
+        </ul>
+
+        <h3 id="term-cancelacion">2.7 Cancelación y reembolsos</h3>
+        <ul>
+          <li>El Cliente puede cancelar la renovación automática en cualquier momento, manteniendo el servicio hasta el final del periodo ya pagado.</li>
+          <li>Los pagos de instalación realizados son <strong>no reembolsables</strong> una vez prestado el servicio de configuración e instalación.</li>
+          <li>Las licencias semestrales o anuales son no reembolsables después de los primeros 14 días desde el inicio del periodo, salvo que CCTGATE incumpla materialmente sus obligaciones.</li>
+          <li>En caso de cancelación, el Cliente conserva la propiedad del hardware pero pierde el acceso a la plataforma cloud.</li>
+        </ul>
+
+        <h3 id="term-restricciones">2.8 Restricciones de uso</h3>
+        <p>El Cliente y sus usuarios se obligan a no:</p>
+        <ul>
+          <li>Utilizar el servicio para fines ilícitos o que afecten derechos de terceros.</li>
+          <li>Sortear o intentar sortear las medidas de seguridad de la plataforma.</li>
+          <li>Sobrecargar deliberadamente la infraestructura (ataques, scraping abusivo, etc.).</li>
+          <li>Compartir credenciales con personas no autorizadas.</li>
+          <li>Captar, almacenar o difundir imágenes de las cámaras CCTV en contravención a la normativa vigente.</li>
+        </ul>
+
+        <h3 id="term-responsabilidad">2.9 Limitación de responsabilidad</h3>
+        <p>CCTGATE pone su mejor empeño para que la plataforma esté disponible de forma continua, pero el Cliente reconoce y acepta que:</p>
+        <ul>
+          <li>El servicio depende de proveedores externos (Internet, hosting cloud, redes eléctricas) cuya disponibilidad escapa de nuestro control directo.</li>
+          <li>CCTGATE no garantiza disponibilidad ininterrumpida y no asume responsabilidad por interrupciones causadas por terceros, caso fortuito o fuerza mayor.</li>
+          <li>El sistema cuenta con red WiFi de respaldo configurable durante la instalación.</li>
+          <li>El Cliente debe mantener un <strong>método alternativo de apertura</strong> (llave física, control remoto, etc.) por si el sistema no estuviese operativo.</li>
+          <li>En ningún caso la responsabilidad acumulada de CCTGATE frente al Cliente excederá los <strong>importes efectivamente pagados</strong> por el Cliente en los últimos 12 meses.</li>
+        </ul>
+        <p>CCTGATE no será responsable por daños indirectos, lucro cesante, pérdida de datos no atribuibles a culpa grave o dolo, ni por daños derivados del uso indebido del servicio.</p>
+
+        <h3 id="term-modificaciones">2.10 Modificaciones del servicio y de los Términos</h3>
+        <p>CCTGATE podrá modificar las funcionalidades del servicio para mejorarlo, así como actualizar estos Términos. Las modificaciones materiales se notificarán por email o mediante aviso en la plataforma con al menos 30 días de antelación. El uso del servicio tras la entrada en vigor implica aceptación.</p>
+
+        <h3 id="term-jurisdiccion">2.11 Ley aplicable y jurisdicción</h3>
+        <p>Estos Términos se rigen por las leyes de la <strong>República de Chile</strong>. Cualquier controversia se someterá a los Tribunales Ordinarios de Justicia con asiento en la ciudad de <strong>Santiago</strong>, sin perjuicio de los derechos irrenunciables que asistan al Cliente en calidad de consumidor conforme a la Ley N° 19.496.</p>
+      </section>
+
+      <!-- ════════ SEGURIDAD ════════ -->
+      <section id="seguridad" class="legal-section">
+        <h2><span class="num">3</span> Política de Seguridad</h2>
+
+        <p>La seguridad de la información es una prioridad de CCTGATE. Aplicamos un conjunto de controles técnicos, organizativos y físicos para proteger la confidencialidad, integridad y disponibilidad de los datos que tratamos. Este documento resume los principales mecanismos en vigor.</p>
+
+        <h3 id="seg-cifrado">3.1 Cifrado</h3>
+        <ul>
+          <li><strong>En tránsito</strong>: toda comunicación entre la aplicación, la nube y los módulos viaja cifrada mediante <strong>TLS 1.3</strong>.</li>
+          <li><strong>En reposo</strong>: la base de datos y los respaldos están cifrados con <strong>AES-256</strong>.</li>
+          <li><strong>Credenciales</strong>: las contraseñas se almacenan utilizando funciones de derivación de clave (bcrypt o equivalente), nunca en texto plano.</li>
+        </ul>
+
+        <h3 id="seg-autenticacion">3.2 Autenticación</h3>
+        <ul>
+          <li>Inicio de sesión mediante credenciales únicas por usuario.</li>
+          <li>Tokens de sesión con expiración automática.</li>
+          <li>Recomendación de uso de contraseñas robustas y posibilidad de habilitar autenticación de dos factores (2FA) cuando esté disponible.</li>
+          <li>Bloqueo automático tras múltiples intentos fallidos.</li>
+        </ul>
+
+        <h3 id="seg-infraestructura">3.3 Infraestructura</h3>
+        <ul>
+          <li>Hosting en proveedores cloud líderes con certificaciones internacionales (ISO 27001, SOC 2 Type II).</li>
+          <li>Aislamiento por entorno (producción, staging, desarrollo).</li>
+          <li>Monitoreo continuo, alertas automatizadas y registros centralizados.</li>
+          <li>Actualizaciones de seguridad aplicadas de forma regular.</li>
+        </ul>
+
+        <h3 id="seg-acceso">3.4 Control de acceso interno</h3>
+        <ul>
+          <li>Aplicamos el principio de mínimo privilegio: cada miembro del equipo solo accede a los recursos estrictamente necesarios para su rol.</li>
+          <li>Todos los accesos a sistemas productivos quedan registrados (auditoría).</li>
+          <li>El personal con acceso a datos personales firma acuerdos de confidencialidad.</li>
+        </ul>
+
+        <h3 id="seg-respaldos">3.5 Respaldos y continuidad</h3>
+        <ul>
+          <li>Respaldos automáticos diarios cifrados.</li>
+          <li>Pruebas periódicas de restauración.</li>
+          <li>Plan de continuidad operacional documentado.</li>
+        </ul>
+
+        <h3 id="seg-incidentes">3.6 Gestión de incidentes</h3>
+        <p>Disponemos de un procedimiento interno de respuesta a incidentes que contempla detección, contención, erradicación, recuperación y lecciones aprendidas. En caso de que se produzca una <strong>brecha de seguridad</strong> que afecte datos personales:</p>
+        <ul>
+          <li>Notificaremos a los Clientes y, cuando corresponda, a la autoridad competente, en los plazos exigidos por la legislación aplicable (en particular, los previstos en la Ley 21.719).</li>
+          <li>Documentaremos el incidente y las medidas correctivas adoptadas.</li>
+        </ul>
+
+        <h3 id="seg-disclosure">3.7 Reporte responsable de vulnerabilidades</h3>
+        <p>Si descubres una vulnerabilidad de seguridad en CCTGATE, te agradecemos que nos la reportes de forma responsable y privada a:</p>
+        <div class="callout callout-ok">
+          📧 <a href="mailto:seguridad@cctgate.cl"><strong>seguridad@cctgate.cl</strong></a><br>
+          <span style="font-size:.85rem;color:var(--text-muted)">Por favor incluye: descripción del hallazgo, pasos para reproducirlo y, si es posible, una propuesta de mitigación. Nos comprometemos a acusar recibo en un plazo máximo de 72 horas y a coordinar contigo la divulgación responsable.</span>
+        </div>
+        <p>No emprenderemos acciones legales contra investigadores que actúen de buena fe, respetando estas pautas y sin afectar la privacidad de los usuarios ni la continuidad del servicio.</p>
+      </section>
+
+      <!-- ════════ CONTACTO ════════ -->
+      <section id="contacto-legal" class="legal-section">
+        <h2><span class="num">4</span> Contacto</h2>
+        <p>Si tienes consultas sobre cualquiera de estos documentos, puedes escribirnos a:</p>
+        <div class="callout">
+          <p style="margin-bottom:8px"><strong>Asuntos de privacidad y datos personales:</strong><br>
+            <a href="mailto:privacidad@cctgate.cl">privacidad@cctgate.cl</a></p>
+          <p style="margin-bottom:8px"><strong>Asuntos comerciales y soporte general:</strong><br>
+            <a href="mailto:ventas@cctgate.cl">ventas@cctgate.cl</a></p>
+          <p style="margin-bottom:0"><strong>Reporte de vulnerabilidades de seguridad:</strong><br>
+            <a href="mailto:seguridad@cctgate.cl">seguridad@cctgate.cl</a></p>
+        </div>
+        <p>Tiempo de respuesta estimado: <strong>24 horas hábiles</strong> para consultas generales; <strong>15 días hábiles</strong> máximo para el ejercicio de derechos sobre datos personales.</p>
+
+        <div class="callout callout-info" style="margin-top:32px">
+          <strong>Nota importante:</strong> esta versión es la primera publicación de los documentos legales de CCTGATE. Pueden ser actualizados periódicamente. Te recomendamos revisar esta página de forma regular. La versión vigente es siempre la publicada en <a href="https://cctgate.cl/legal.html">cctgate.cl/legal.html</a>.
+        </div>
+      </section>
+
+    </article>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <div>© 2026 I2R SPA. Todos los derechos reservados.</div>
+      <div>
+        <a href="landing.html" style="color:var(--text-muted)">Inicio</a>
+        <span style="color:var(--text-dim);margin:0 8px">·</span>
+        <a href="index.html#contacto" style="color:var(--text-muted)">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
