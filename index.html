@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CCTGATE — Control de Acceso Inteligente con Cámara CCTV</title>
-  <meta name="description" content="Controla puertas, barreras y torniquetes desde tu celular. Cámara CCTV en vivo integrada, hasta 20.000 usuarios, instalación sobre tu sistema actual. Para condominios, empresas y comunidades en Chile." />
+  <title>CCTGATE — Control de Acceso para Condominios en Santiago</title>
+  <meta name="description" content="Sistema de control de acceso para condominios en Santiago. Reemplaza los controles remotos: los residentes abren el portón desde su celular. Gestión centralizada para el administrador. Sin contratos largos." />
   <meta name="keywords" content="control de acceso, portón inteligente, condominio, CCTV, apertura remota, Chile, cerradura inteligente" />
   <meta name="author" content="CCTGATE" />
   <meta name="theme-color" content="#0c0f1a" />
@@ -134,7 +134,10 @@
     .nav-cta { display: flex; align-items: center; gap: 12px; }
     .nav-cta .btn-ghost { padding: 9px 20px; font-size: .88rem; }
     .nav-cta .btn-primary { padding: 9px 20px; font-size: .88rem; box-shadow: none; }
+    .nav-cta .btn-green { padding: 9px 20px; font-size: .88rem; box-shadow: none; white-space: nowrap; }
     @media (max-width: 768px) { .nav-links { display: none; } }
+    @media (max-width: 640px) { .nav-cta .btn-primary { display: none; } }
+    @media (max-width: 400px) { .nav-cta .btn-green { padding: 8px 14px; font-size: .82rem; } }
 
     /* ─── HERO ─── */
     .hero {
@@ -627,9 +630,9 @@
         <div class="hero-eyebrow">
           <span class="badge-green">Sistema activo</span>
         </div>
-        <h1>Control de acceso <span>inteligente</span><br>creado para condominios<br><span style="font-size:.65em;color:var(--text-muted);font-weight:600">o cualquier puerta que desees controlar</span></h1>
+        <h1>Olvídate de los<br><span>controles remotos</span><br>en tu condominio</h1>
         <p class="hero-sub">
-          El condominio contrata el sistema y todos los residentes abren la puerta desde su celular. Sin control remoto, sin tarjetas, sin complicaciones.
+          El administrador gestiona el acceso desde el panel web. Los residentes abren el portón desde su celular. Sin controles perdidos, sin copias no autorizadas, sin llamadas a deshoras.
         </p>
         <div class="hero-actions">
           <a href="#contacto" class="btn-primary">
@@ -806,6 +809,41 @@
     </div>
   </div>
 </div>
+
+<!-- PAIN POINTS -->
+<section style="padding:80px 0">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:52px">
+      <span class="tag">✦ ¿Te suena familiar?</span>
+      <h2 style="margin-top:18px">Los controles remotos son un <span>dolor de cabeza</span></h2>
+      <p class="section-sub">Administrar el acceso de un condominio con controles remotos físicos es caro, inseguro y difícil de controlar.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px">
+        <div style="font-size:2rem;margin-bottom:16px">🔑</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:8px;color:var(--text)">Controles perdidos y copiados</div>
+        <div style="font-size:.875rem;color:var(--text-muted);line-height:1.65">Cuando un residente pierde el control, no sabes quién más puede tener acceso. Revocar uno solo es imposible sin cambiar la frecuencia para todos.</div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px">
+        <div style="font-size:2rem;margin-bottom:16px">📋</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:8px;color:var(--text)">Sin registro de quién entra</div>
+        <div style="font-size:.875rem;color:var(--text-muted);line-height:1.65">No tienes forma de saber a qué hora llegaron los trabajadores, quién entró fuera de horario ni qué residente dejó el portón abierto.</div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px">
+        <div style="font-size:2rem;margin-bottom:16px">📞</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:8px;color:var(--text)">Llamadas y gestión constante</div>
+        <div style="font-size:.875rem;color:var(--text-muted);line-height:1.65">Residentes que llaman porque perdieron el control, visitas que no pueden entrar, proveedores esperando afuera. Siempre tú en el medio.</div>
+      </div>
+    </div>
+    <div style="background:linear-gradient(135deg,#0e2a14,#131728);border:1px solid rgba(34,197,94,.3);border-radius:var(--radius-lg);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:6px">CCTGATE reemplaza todos los controles remotos de tu condominio</div>
+        <div style="font-size:.9rem;color:var(--text-muted)">Cada residente usa su celular. Tú gestionas todo desde el panel web, sin importar dónde estés.</div>
+      </div>
+      <a href="#contacto" class="btn-primary" style="white-space:nowrap;flex-shrink:0">Quiero saber más →</a>
+    </div>
+  </div>
+</section>
 
 <!-- CARACTERÍSTICAS -->
 <section class="section" id="caracteristicas">
@@ -1632,7 +1670,7 @@
       msg.style.background = 'rgba(231,76,60,.15)';
       msg.style.border = '1px solid rgba(231,76,60,.3)';
       msg.style.color = '#e74c3c';
-      msg.textContent = 'Error al enviar. Escríbenos directamente a ventas@cctgate.cl';
+      msg.textContent = 'Error al enviar. Escríbenos directamente a formulario@cctgate.cl';
     })
     .finally(() => {
       btn.disabled = false;
