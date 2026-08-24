@@ -706,7 +706,7 @@
       </div>
 
       <!-- Mockup -->
-      <div class="mockup-wrap" style="position:relative;padding:80px 0 90px">
+      <div class="mockup-wrap" style="position:relative;padding:80px 0 150px">
         <div class="mockup-glow"></div>
 
         <!-- Anotación 1: foto de la puerta (arriba, sobre el thumbnail) -->
@@ -719,10 +719,10 @@
           <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);box-shadow:0 0 6px rgba(255,255,255,.3)"></div>
         </div>
 
-        <!-- Anotación 2: cámara en vivo (abajo, sobre el live feed) -->
-        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;z-index:10">
+        <!-- Anotación 2: cámara en vivo — anclada desde top para apuntar siempre al feed -->
+        <div style="position:absolute;top:415px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;z-index:10">
           <div style="width:8px;height:8px;border-radius:50%;background:rgba(232,112,26,.8);box-shadow:0 0 6px rgba(232,112,26,.5)"></div>
-          <div style="width:1px;height:108px;background:linear-gradient(to bottom,rgba(232,112,26,.5),rgba(232,112,26,.15))"></div>
+          <div style="width:1px;height:160px;background:linear-gradient(to bottom,rgba(232,112,26,.5),rgba(232,112,26,.15))"></div>
           <div style="background:var(--bg-card2);border:1px solid rgba(232,112,26,.3);border-radius:10px;padding:8px 14px;text-align:center;white-space:nowrap">
             <div style="font-size:.72rem;font-weight:700;color:var(--orange);line-height:1.3">📷 Cámara CCTV en vivo</div>
             <div style="font-size:.65rem;color:var(--text-muted);margin-top:2px">Stream en tiempo real de tu cámara IP</div>
@@ -833,6 +833,16 @@
             </svg>
             <div class="ipc-label">IPC</div>
           </div>
+
+          <!-- Visitor link button -->
+          <div style="margin-top:12px;display:flex;align-items:center;gap:8px;background:rgba(232,112,26,.1);border:1px solid rgba(232,112,26,.3);border-radius:10px;padding:10px 14px;cursor:pointer;transition:background .2s">
+            <span style="font-size:1rem;flex-shrink:0">🔗</span>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:.7rem;font-weight:800;color:var(--orange);letter-spacing:.03em">Generar enlace de visita</div>
+              <div style="font-size:.6rem;color:var(--text-muted);margin-top:1px">Un solo uso · caduca en 24 h</div>
+            </div>
+            <span style="font-size:.65rem;font-weight:700;color:var(--orange);background:rgba(232,112,26,.15);padding:3px 8px;border-radius:999px;white-space:nowrap">Copiar link</span>
+          </div>
         </div>
       </div>
     </div>
@@ -937,7 +947,12 @@
       <div class="feature-card">
         <div class="feature-icon">📋</div>
         <div class="feature-title">Historial de accesos</div>
-        <div class="feature-desc">Registro completo de quién entró, a qué hora y desde qué dispositivo.</div>
+        <div class="feature-desc">Registro de quién entró, a qué hora y desde qué dispositivo. Visualiza los últimos <strong style="color:var(--text)">100 registros</strong> en la app. Los registros se guardan durante <strong style="color:var(--text)">60 días</strong> en la nube.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-title">Enlace único de visita</div>
+        <div class="feature-desc">Cualquier usuario puede generar un enlace de un solo uso para visitas o proveedores. El visitante abre la puerta una vez desde su celular, sin necesitar cuenta ni la app. El enlace caduca a las 24 horas.</div>
       </div>
     </div>
   </div>
@@ -994,6 +1009,12 @@
             <td style="padding:14px 20px;text-align:center;color:#f87171">✕</td>
             <td style="padding:14px 20px;text-align:center;color:var(--green)">✓</td>
             <td style="padding:14px 20px;text-align:center;color:var(--green);background:rgba(232,112,26,.04)">✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">
+            <td style="padding:14px 20px;color:var(--text)">Enlace único para visitas y proveedores</td>
+            <td style="padding:14px 20px;text-align:center;color:#f87171">✕</td>
+            <td style="padding:14px 20px;text-align:center;color:#f87171">✕</td>
+            <td style="padding:14px 20px;text-align:center;color:var(--green);background:rgba(232,112,26,.04);font-weight:800">✓</td>
           </tr>
           <tr>
             <td style="padding:14px 20px;color:var(--text)">Compatible con sistema existente</td>
@@ -1096,9 +1117,11 @@
                 <td style="padding:10px 16px;color:var(--text)">carlos.m@empresa.com</td>
                 <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">12/5/2026, 8:16:29</td>
               </tr>
-              <tr style="border-bottom:1px solid var(--border)">
+              <tr style="border-bottom:1px solid var(--border);background:rgba(232,112,26,.04)">
                 <td style="padding:10px 16px;color:var(--text-muted)">2</td>
-                <td style="padding:10px 16px;color:var(--text)">ana.lopez@empresa.com</td>
+                <td style="padding:10px 16px">
+                  <span style="color:var(--orange);font-weight:600">🔗 Visita de ana.lopez@empresa.com</span>
+                </td>
                 <td style="padding:10px 16px;color:var(--text-muted);white-space:nowrap">11/5/2026, 18:00:00</td>
               </tr>
               <tr style="border-bottom:1px solid var(--border)">
@@ -1133,6 +1156,10 @@
               </tr>
             </tbody>
           </table>
+          <div style="padding:10px 16px;background:var(--bg-card2);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
+            <span style="font-size:.72rem;color:var(--text-muted)">📋 Mostrando <strong style="color:var(--text)">100 registros</strong> más recientes</span>
+            <span style="font-size:.72rem;color:var(--text-muted)">🗓 Retención: <strong style="color:var(--text)">60 días</strong></span>
+          </div>
         </div>
       </div>
     </div>
