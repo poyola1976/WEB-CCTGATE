@@ -1172,7 +1172,7 @@
   <div class="container cctv-content">
     <div class="cctv-grid">
       <!-- App device cards demo -->
-      <div style="display:flex;flex-direction:column;gap:14px;width:100%">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:340px;width:100%;margin:0 auto">
 
         <!-- Device 1: sin cámara -->
         <div style="background:#181c2a;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 16px">
@@ -1186,11 +1186,11 @@
               <div style="font-size:.55rem;font-weight:800;letter-spacing:.04em;text-align:center;line-height:1.3">ACCIONAR<br/>PUERTA</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
             <div style="flex:1;background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;padding:8px 6px;text-align:center;font-size:.68rem;font-weight:600;color:var(--text-muted)">📋 Historial</div>
-            <div style="flex:1;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.35);border-radius:8px;padding:8px 6px;text-align:center;font-size:.68rem;font-weight:700;color:#a5b4fc">🔗 Enlace único</div>
             <div style="width:36px;height:36px;background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#22c55e">🔑</div>
           </div>
+          <div style="background:transparent;border:1px solid rgba(99,102,241,.4);border-radius:8px;padding:8px 10px;text-align:center;font-size:.68rem;font-weight:700;color:#a5b4fc">🔗 Generar enlace de visita</div>
         </div>
 
         <!-- Device 2: con cámara -->
@@ -1220,12 +1220,12 @@
               <div style="font-size:.55rem;font-weight:800;letter-spacing:.04em;text-align:center;line-height:1.3">ACCIONAR<br/>PUERTA</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
             <div style="flex:1;background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;padding:8px 6px;text-align:center;font-size:.68rem;font-weight:600;color:var(--text-muted)">📋 Historial</div>
             <div style="flex:1;background:var(--orange);border:1px solid var(--orange);border-radius:8px;padding:8px 6px;text-align:center;font-size:.68rem;font-weight:700;color:#fff;box-shadow:0 2px 10px rgba(232,112,26,.35)">📷 Cámara</div>
-            <div style="flex:1;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.35);border-radius:8px;padding:8px 6px;text-align:center;font-size:.68rem;font-weight:700;color:#a5b4fc">🔗 Enlace único</div>
             <div style="width:36px;height:36px;background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#22c55e">🔑</div>
           </div>
+          <div style="background:transparent;border:1px solid rgba(99,102,241,.4);border-radius:8px;padding:8px 10px;text-align:center;font-size:.68rem;font-weight:700;color:#a5b4fc">🔗 Generar enlace de visita</div>
         </div>
 
       </div>
@@ -1466,10 +1466,10 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:640px;margin:0 auto">
         <!-- Anual sin CCTV -->
         <div class="price-card">
-          <div class="price-plan">Anual</div>
+          <div class="price-plan">Bianual</div>
           <div style="font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em">Sin CCTV</div>
           <div class="price-num">$12.000<span style="font-size:.8rem"> CLP</span></div>
-          <div class="price-desc">Por usuario · cada 12 meses</div>
+          <div class="price-desc">Por usuario · cada 24 meses</div>
           <ul class="price-features" style="margin-top:16px">
             <li>Control remoto de puerta</li>
             <li>Historial de accesos</li>
@@ -1542,26 +1542,28 @@
             <thead>
               <tr style="background:rgba(232,112,26,.18)">
                 <th colspan="2" style="padding:10px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(232,112,26,.3)">Usuarios</th>
-                <th style="padding:10px 16px;text-align:center;color:var(--orange);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(232,112,26,.3)">Valor mensual (UF)</th>
+                <th style="padding:10px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(232,112,26,.3);border-left:1px solid rgba(232,112,26,.2)">Sin CCTV (UF)</th>
+                <th style="padding:10px 16px;text-align:center;color:var(--orange);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(232,112,26,.3);border-left:1px solid rgba(232,112,26,.2)">Con CCTV (UF)</th>
               </tr>
               <tr style="background:rgba(255,255,255,.04)">
                 <th style="padding:7px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:600;border-bottom:1px solid var(--border)">Desde</th>
                 <th style="padding:7px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:600;border-bottom:1px solid var(--border)">Hasta</th>
-                <th style="padding:7px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:600;border-bottom:1px solid var(--border)"></th>
+                <th style="padding:7px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:600;border-bottom:1px solid var(--border);border-left:1px solid var(--border)">mensual</th>
+                <th style="padding:7px 16px;text-align:center;color:var(--text-muted);font-size:.72rem;font-weight:600;border-bottom:1px solid var(--border);border-left:1px solid var(--border)">mensual</th>
               </tr>
             </thead>
             <tbody>
-              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">20</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">0,5</td></tr>
-              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">21</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">50</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">1,5</td></tr>
-              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">51</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">100</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">3,0</td></tr>
-              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">101</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">200</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">5,5</td></tr>
-              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">201</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">300</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">8,0</td></tr>
-              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">301</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">500</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">12,0</td></tr>
-              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">501</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">750</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">15,0</td></tr>
-              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">751</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.000</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">20,0</td></tr>
-              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.001</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.500</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">25,0</td></tr>
-              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.501</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">2.000</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text)">30,0</td></tr>
-              <tr style="background:rgba(232,112,26,.08)"><td style="padding:10px 16px;text-align:center;color:var(--text-muted)">2.001</td><td style="padding:10px 16px;text-align:center;color:var(--text-muted)">Más</td><td style="padding:10px 16px;text-align:center;font-weight:700;color:var(--orange)">Consultar</td></tr>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">20</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">0,25</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">0,5</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">21</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">50</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">0,75</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">1,5</td></tr>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">51</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">100</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">1,5</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">3,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">101</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">200</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">2,75</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">5,5</td></tr>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">201</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">300</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">4,0</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">8,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">301</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">500</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">6,0</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">12,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">501</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">750</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">7,5</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">15,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">751</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.000</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">10,0</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">20,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.001</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.500</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">12,5</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">25,0</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)"><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">1.501</td><td style="padding:9px 16px;text-align:center;color:var(--text-muted)">2.000</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text-muted);border-left:1px solid var(--border)">15,0</td><td style="padding:9px 16px;text-align:center;font-weight:700;color:var(--text);border-left:1px solid var(--border)">30,0</td></tr>
+              <tr style="background:rgba(232,112,26,.08)"><td style="padding:10px 16px;text-align:center;color:var(--text-muted)">2.001</td><td style="padding:10px 16px;text-align:center;color:var(--text-muted)">Más</td><td style="padding:10px 16px;text-align:center;font-weight:700;color:var(--orange);border-left:1px solid var(--border)">Consultar</td><td style="padding:10px 16px;text-align:center;font-weight:700;color:var(--orange);border-left:1px solid var(--border)">Consultar</td></tr>
             </tbody>
           </table>
         </div>
