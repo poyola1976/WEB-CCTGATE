@@ -554,7 +554,8 @@
     .faq-arrow { transition: transform .3s; font-size: .9rem; color: var(--text-muted); }
     .faq-item.open .faq-arrow { transform: rotate(180deg); }
     .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
-    .faq-item.open .faq-a { max-height: 200px; }
+    /* 200px cortaba las respuestas largas en celular, que llegan a ~260px. */
+    .faq-item.open .faq-a { max-height: 600px; }
     .faq-a-inner { padding: 0 24px 20px; font-size: .875rem; color: var(--text-muted); line-height: 1.7; }
 
     /* ─── CTA FINAL ─── */
@@ -951,6 +952,10 @@
         <p class="modulo-sub">
           La portería deja el cuaderno. Queda registrado quién entra y qué paquetes llegan,
           y el residente se entera solo por correo, sin llamados por citófono.
+        </p>
+        <p class="modulo-sub" style="margin-top:10px">
+          <strong style="color:var(--text)">¿No quieres cambiar cómo se abre el portón?</strong>
+          El módulo se contrata solo, sin control de puerta ni instalación.
         </p>
 
         <div class="modulo-items">
@@ -1809,6 +1814,9 @@
       <p style="text-align:center;font-size:.9rem;color:var(--text-muted);max-width:640px;margin:0 auto 36px;line-height:1.65">
         Se contrata aparte de la licencia de acceso, con un pago mensual en UF por condominio. Cubre a todos los residentes y a la portería.
       </p>
+      <div style="background:var(--green-dim);border:1px solid rgba(34,197,94,.25);border-radius:10px;padding:12px 20px;max-width:640px;margin:-18px auto 36px;text-align:center;font-size:.85rem;color:var(--text-muted);line-height:1.55">
+        <strong style="color:var(--green)">También sin control de puerta.</strong> Si el condominio solo quiere visitas y encomiendas, paga únicamente el módulo: sin instalación, sin hardware y sin licencias para los residentes.
+      </div>
       <div class="pricing-grid" style="max-width:900px;margin:0 auto">
         <!-- Visitas -->
         <div class="price-card">
@@ -1872,6 +1880,10 @@
       <div class="faq-item">
         <div class="faq-q">¿El condominio puede pagar por todos los residentes? <span class="faq-arrow">▾</span></div>
         <div class="faq-a"><div class="faq-a-inner">Sí. El administrador puede activar el "modo condominio", donde el edificio paga una suscripción mensual que cubre a todos los residentes autorizados. Los usuarios no necesitan gestionar ni pagar nada por su cuenta. El sistema envía avisos automáticos antes del vencimiento y tiene un período de gracia configurable antes de bloquear el acceso.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Puedo contratar solo visitas y encomiendas, sin el control de puerta? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sí. El módulo funciona por sí solo: la portería registra visitas y encomiendas en la app y los residentes reciben los avisos, sin tocar cómo se abre hoy el portón. En ese caso el condominio paga únicamente el módulo —1 UF mensual por visitas o por encomiendas, o 1,5 UF por los dos— sin costo de instalación, sin hardware y sin licencias para los residentes. <a href="#precios-modulo" style="color:var(--orange);text-decoration:underline">Ver precios</a>.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">¿Necesito reemplazar mi cerradura o barrera existente? <span class="faq-arrow">▾</span></div>
