@@ -148,7 +148,7 @@
     .nav-links a { font-size: .92rem; font-weight: 500; color: var(--text-muted); transition: color .2s; white-space: nowrap; }
     .nav-links a:hover { color: var(--text); }
     /* El módulo de visitas y encomiendas va como píldora y no como un enlace
-       más: es lo que se quiere destacar y en verde se lee como "incluido". */
+       más: es lo que se quiere destacar. */
     .nav-destacado {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--green-dim); color: var(--green) !important;
@@ -497,6 +497,15 @@
     }
     @media (max-width: 560px) {
       [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr !important; }
+      /* En celular la página se salía por el costado: el layout quedaba en
+         ~560px en una pantalla de 375. Tres causas, todas en estilos en línea:
+         los títulos de los bloques de precios, que no se partían y miden más
+         de 500px; las grillas de 2 y 3 columnas sin versión para celular; y
+         los hijos de grilla, que por defecto no se encogen bajo su contenido. */
+      [style*="letter-spacing:.1em;white-space:nowrap"] { white-space: normal !important; text-align: center; }
+      [style*="grid-template-columns:repeat(3,1fr)"],
+      [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+      [style*="display:grid"] > * { min-width: 0; }
     }
     .price-card {
       background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
@@ -752,7 +761,7 @@
         <div class="hero-eyebrow" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
           <span class="badge-green">Sistema activo</span>
           <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(232,112,26,.15);color:var(--orange);border:1px solid rgba(232,112,26,.35);border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px">📷 Único con cámara en vivo integrada</span>
-          <a href="#visitas" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-dim);color:var(--green);border:1px solid rgba(34,197,94,.35);border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px">🪪 Visitas y encomiendas incluidas</a>
+          <a href="#visitas" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-dim);color:var(--green);border:1px solid rgba(34,197,94,.35);border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px">🪪 Visitas y encomiendas desde 1 UF</a>
         </div>
         <h1>Olvídate de los<br><span>controles remotos</span><br>en tu condominio</h1>
         <p class="hero-sub">
@@ -937,7 +946,7 @@
     <div class="modulo-card">
       <div class="modulo-glow"></div>
       <div class="modulo-inner">
-        <span class="badge-green">✓ Incluido en todos los planes, sin costo adicional</span>
+        <span class="badge-green">Desde 1 UF mensual · los dos módulos por 1,5 UF</span>
         <h2 class="modulo-title">Módulo de gestión de<br /><span>visitas y encomiendas</span></h2>
         <p class="modulo-sub">
           La portería deja el cuaderno. Queda registrado quién entra y qué paquetes llegan,
@@ -1394,10 +1403,10 @@
       <span class="tag">✦ Control de visitas y encomiendas</span>
       <h2 style="margin-top:18px">La portería deja de anotar<br /><span>en un cuaderno</span></h2>
       <p class="section-sub">Visitas y encomiendas quedan registradas en la misma app, y el residente se entera solo. Sin llamados por citófono ni papeles que se pierden.</p>
-      <div style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--green-dim);border:1px solid rgba(34,197,94,.35);border-radius:999px;padding:8px 18px">
-        <span style="font-size:.9rem">✓</span>
-        <span style="font-size:.82rem;font-weight:700;color:var(--green);letter-spacing:.02em">Incluido en todos los planes, sin costo adicional</span>
-      </div>
+      <a href="#precios-modulo" style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--green-dim);border:1px solid rgba(34,197,94,.35);border-radius:999px;padding:8px 18px">
+        <span style="font-size:.9rem">🏷️</span>
+        <span style="font-size:.82rem;font-weight:700;color:var(--green);letter-spacing:.02em">1 UF mensual cada módulo · los dos por 1,5 UF · Ver precios →</span>
+      </a>
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px" class="visitas-grid">
@@ -1688,8 +1697,6 @@
             <li>Control remoto de puerta</li>
             <li>Historial de accesos</li>
             <li>App iOS &amp; Android</li>
-            <li>Gestión de visitas</li>
-            <li>Gestión de encomiendas</li>
             <li class="disabled">Cámara CCTV</li>
           </ul>
           <a href="#contacto" class="price-cta price-cta-ghost" style="display:block;text-align:center">Comenzar</a>
@@ -1705,8 +1712,6 @@
             <li>Control remoto de puerta</li>
             <li>Historial de accesos</li>
             <li>App iOS &amp; Android</li>
-            <li>Gestión de visitas</li>
-            <li>Gestión de encomiendas</li>
             <li>Cámara en vivo (1/puerta)</li>
           </ul>
           <a href="#contacto" class="price-cta price-cta-fill" style="display:block;text-align:center">Comenzar</a>
@@ -1792,6 +1797,65 @@
           <p style="font-size:.72rem;color:var(--text-dim);margin-top:12px">Disponible con o sin integración de cámara CCTV</p>
         </div>
       </div>
+    </div>
+
+    <!-- BLOQUE 4: MÓDULO DE VISITAS Y ENCOMIENDAS -->
+    <div style="margin-top:56px" id="precios-modulo">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+        <div style="height:1px;flex:1;background:var(--border)"></div>
+        <span style="font-size:.78rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap">🪪 Módulo de visitas y encomiendas — lo paga el condominio</span>
+        <div style="height:1px;flex:1;background:var(--border)"></div>
+      </div>
+      <p style="text-align:center;font-size:.9rem;color:var(--text-muted);max-width:640px;margin:0 auto 36px;line-height:1.65">
+        Se contrata aparte de la licencia de acceso, con un pago mensual en UF por condominio. Cubre a todos los residentes y a la portería.
+      </p>
+      <div class="pricing-grid" style="max-width:900px;margin:0 auto">
+        <!-- Visitas -->
+        <div class="price-card">
+          <div class="price-plan">🪪 Visitas</div>
+          <div class="price-num">1<span> UF</span></div>
+          <div class="price-desc">Mensual · por condominio</div>
+          <ul class="price-features">
+            <li>El residente inscribe a sus visitas</li>
+            <li>Validación con el QR de la cédula</li>
+            <li>Ingreso rápido de vehículos</li>
+            <li>Control de estacionamiento</li>
+            <li>Historial exportable a PDF</li>
+          </ul>
+          <a href="#contacto" class="price-cta price-cta-ghost" style="display:block;text-align:center">Consultar</a>
+        </div>
+        <!-- Los dos -->
+        <div class="price-card highlighted">
+          <div class="price-badge">Ahorra 0,5 UF</div>
+          <div class="price-plan">🪪📦 Visitas + encomiendas</div>
+          <div class="price-num">1,5<span> UF</span></div>
+          <div class="price-desc">Mensual · por condominio</div>
+          <ul class="price-features">
+            <li>Todo el módulo de visitas</li>
+            <li>Todo el módulo de encomiendas</li>
+            <li>Avisos por correo al residente</li>
+            <li>Una sola pantalla para la portería</li>
+          </ul>
+          <a href="#contacto" class="price-cta price-cta-fill" style="display:block;text-align:center">Consultar</a>
+        </div>
+        <!-- Encomiendas -->
+        <div class="price-card">
+          <div class="price-plan">📦 Encomiendas</div>
+          <div class="price-num">1<span> UF</span></div>
+          <div class="price-desc">Mensual · por condominio</div>
+          <ul class="price-features">
+            <li>Registro a nombre del residente</li>
+            <li>Correo al llegar y al entregar</li>
+            <li>Queda registrado quién retiró</li>
+            <li>Listado de pendientes</li>
+            <li>Respaldo ante reclamos</li>
+          </ul>
+          <a href="#contacto" class="price-cta price-cta-ghost" style="display:block;text-align:center">Consultar</a>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:.78rem;color:var(--text-muted);margin-top:20px">
+        Precio fijo para condominios de hasta 500 usuarios. Para comunidades más grandes, <a href="#contacto" style="color:var(--orange);text-decoration:underline">consultar valor</a>.
+      </p>
     </div>
 
   </div>
@@ -1933,6 +1997,11 @@
               <option value="inst-con-cctv" style="background:#131728">Instalación con CCTV — $350.000</option>
               <option value="inst-con-cctv-gratis" style="background:#131728">✅ Instalación con CCTV — GRATIS (condominio +50 usuarios)</option>
             </optgroup>
+            <optgroup label="── Módulo de visitas y encomiendas" style="background:#131728">
+              <option value="mod-visitas" style="background:#131728">Módulo de visitas — 1 UF mensual</option>
+              <option value="mod-encomiendas" style="background:#131728">Módulo de encomiendas — 1 UF mensual</option>
+              <option value="mod-ambos" style="background:#131728">Visitas + encomiendas — 1,5 UF mensual</option>
+            </optgroup>
           </select>
         </div>
         <div>
@@ -2033,7 +2102,7 @@
     const select = document.getElementById('plan-select');
     if (n >= 50) {
       hint.innerHTML = '🎁 <strong style="color:#22c55e">¡Instalación gratis!</strong> Tu condominio califica por tener más de 50 usuarios.';
-      if (!select.value.includes('gratis')) {
+      if (!select.value.startsWith('mod-') && !select.value.includes('gratis')) {
         select.value = 'inst-sin-cctv-gratis';
       }
     } else if (n > 0) {
