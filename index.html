@@ -11,8 +11,8 @@
     gtag('config', 'G-X99T1D9Y50');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CCTGATE — Control de Acceso para Condominios y Hogares | Chile</title>
-  <meta name="description" content="Abre el portón desde tu celular, sin controles remotos. Para condominios y hogares en Chile: gestión centralizada, cámara CCTV en vivo, hasta 20.000 usuarios. Sin contratos largos." />
+  <title>CCTGATE — Portón, portería y emergencias para tu condominio | Chile</title>
+  <meta name="description" content="Cuando pasa algo en tu condominio, todos se enteran. Botón de pánico, registro de visitas y encomiendas, y apertura del portón desde el celular. Con cámara CCTV en vivo. Chile." />
   <meta name="keywords" content="control de acceso condominio, portón inteligente Chile, apertura remota portón, sistema acceso residencial, reemplazar control remoto portón, administración acceso condominio, portón celular Chile, cámara CCTV portón, cerradura inteligente hogar, acceso inteligente Santiago, portón automático hogar, control acceso residencial Chile" />
   <meta name="author" content="CCTGATE" />
   <meta name="theme-color" content="#0c0f1a" />
@@ -22,8 +22,8 @@
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://cctgate.cl/" />
-  <meta property="og:title" content="CCTGATE — Control de Acceso Inteligente" />
-  <meta property="og:description" content="Abre puertas y barreras desde tu celular. Con cámara CCTV en vivo. Hasta 20.000 usuarios. Compatible con tu sistema actual." />
+  <meta property="og:title" content="CCTGATE — El portón, la portería y las emergencias en un teléfono" />
+  <meta property="og:description" content="Cuando pasa algo en tu condominio, todos se enteran. Botón de pánico, visitas y encomiendas, y apertura del portón desde el celular." />
   <meta property="og:image" content="https://cctgate.cl/logo-cctgate.png" />
   <meta property="og:image:alt" content="CCTGATE — Control de acceso inteligente" />
   <meta property="og:locale" content="es_CL" />
@@ -157,6 +157,16 @@
       transition: background .2s;
     }
     .nav-destacado:hover { background: rgba(34,197,94,.2); }
+    /* El de pánico va en rojo: es lo que la gente busca primero y conviene que
+       se distinga del de visitas en vez de competir con él en verde. */
+    .nav-destacado-rojo {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(231,76,60,.14); color: #f87171 !important;
+      border: 1px solid rgba(231,76,60,.38); border-radius: 999px;
+      padding: 6px 14px; font-weight: 700 !important;
+      transition: background .2s;
+    }
+    .nav-destacado-rojo:hover { background: rgba(231,76,60,.22); }
     /* Los cortes subieron junto con el tamaño: con la tipografía más grande el
        menú deja de caber antes que antes. */
     @media (max-width: 1340px) { .nav-links { gap: 17px; } .nav-links a { font-size: .86rem; } }
@@ -740,6 +750,7 @@
              primera después del hero, así que se ve igual al bajar. -->
         <a href="#como-funciona">Cómo funciona</a>
         <a href="#camara">Cámara CCTV</a>
+        <a href="#panico" class="nav-destacado-rojo">🚨 Botón de pánico</a>
         <a href="#visitas" class="nav-destacado">🪪 Visitas y encomiendas</a>
         <a href="#precios">Precios</a>
         <a href="instalar.html" style="color:var(--orange);display:inline-flex;align-items:center;gap:5px"><span style="font-size:.95rem">📱</span> Instalar app</a>
@@ -763,10 +774,11 @@
           <span class="badge-green">Sistema activo</span>
           <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(232,112,26,.15);color:var(--orange);border:1px solid rgba(232,112,26,.35);border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px">📷 Único con cámara en vivo integrada</span>
           <a href="#visitas" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-dim);color:var(--green);border:1px solid rgba(34,197,94,.35);border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px">🪪 Visitas y encomiendas desde 1 UF</a>
+          <a href="#panico" style="display:inline-flex;align-items:center;gap:6px;background:rgba(231,76,60,.14);color:#f87171;border:1px solid rgba(231,76,60,.38);border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px">🚨 Nuevo: botón de pánico</a>
         </div>
-        <h1>Olvídate de los<br><span>controles remotos</span><br>en tu condominio</h1>
+        <h1>El portón, la portería y las<br><span>emergencias</span>,<br>en un solo teléfono</h1>
         <p class="hero-sub">
-          El administrador gestiona el acceso desde el panel web. Los residentes abren el portón desde su celular. Sin controles perdidos, sin copias no autorizadas, sin llamadas a deshoras.
+          <strong style="color:var(--text)">Cuando pasa algo en tu condominio, todos se enteran.</strong> Y el resto del tiempo: los residentes abren el portón sin control remoto y la portería registra visitas y encomiendas sin cuaderno.
         </p>
         <div class="hero-actions">
           <a href="#contacto" class="btn-primary">
@@ -947,7 +959,7 @@
     <div class="modulo-card">
       <div class="modulo-glow"></div>
       <div class="modulo-inner">
-        <span class="badge-green">Desde 1 UF mensual · los dos módulos por 1,5 UF</span>
+        <span class="badge-green">Desde 1 UF mensual · los tres módulos por 1,5 UF</span>
         <h2 class="modulo-title">Módulo de gestión de<br /><span>visitas y encomiendas</span></h2>
         <p class="modulo-sub">
           La portería deja el cuaderno. Queda registrado quién entra y qué paquetes llegan,
@@ -1401,6 +1413,52 @@
 </section>
 
 <!-- VISITAS Y ENCOMIENDAS -->
+<!-- BOTÓN DE PÁNICO -->
+<section class="section" id="panico" style="padding-top:0">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">✦ Botón de pánico</span>
+      <h2 style="margin-top:18px">Cuando pasa algo, el condominio<br /><span>se entera al instante</span></h2>
+      <p class="section-sub">Un robo, un incendio, una emergencia médica, una fuga de agua. El residente da la alerta desde la app y el aviso llega a quien puede hacer algo: a los vecinos, a la portería o a los dos.</p>
+      <a href="#precios-modulo" style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:rgba(231,76,60,.14);border:1px solid rgba(231,76,60,.38);border-radius:999px;padding:8px 18px">
+        <span style="font-size:.9rem">🏷️</span>
+        <span style="font-size:.82rem;font-weight:700;color:#f87171;letter-spacing:.02em">1 UF mensual · los tres módulos por 1,5 UF · Ver precios →</span>
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px">
+      <div class="feature-card" style="padding:26px 22px">
+        <div class="feature-icon" style="background:rgba(231,76,60,.15);border-color:rgba(231,76,60,.35)">🚨</div>
+        <div class="feature-title" style="font-size:1.05rem">Cada aviso, a quien corresponde</div>
+        <div class="feature-desc">Un robo o un incendio le llegan a todo el condominio, porque cada vecino tiene algo que hacer. Una fuga de agua o un ascensor detenido van solo a la portería, que es quien actúa. El administrador lo define al configurar el condominio.</div>
+      </div>
+      <div class="feature-card" style="padding:26px 22px">
+        <div class="feature-icon" style="background:rgba(243,156,18,.15);border-color:rgba(243,156,18,.35)">👥</div>
+        <div class="feature-title" style="font-size:1.05rem">Diez vecinos, un solo aviso</div>
+        <div class="feature-desc">Si se corta la luz, medio condominio aprieta el botón. En vez de diez notificaciones iguales, se suman a la misma alerta y la portería ve un contador: <strong style="color:var(--text)">"12 unidades lo reportaron"</strong>. Eso además le dice si es general o de una casa.</div>
+      </div>
+      <div class="feature-card" style="padding:26px 22px">
+        <div class="feature-icon" style="background:rgba(46,204,113,.15);border-color:rgba(46,204,113,.35)">👁</div>
+        <div class="feature-title" style="font-size:1.05rem">Se sabe si alguien la vio</div>
+        <div class="feature-desc">La portería marca la alerta como atendida y quien la dio recibe el aviso: <strong style="color:var(--text)">"Juan la vio a las 3:42"</strong>. Sin eso, nadie sabe si viene ayuda en camino y cada vecino termina llamando por su cuenta.</div>
+      </div>
+      <div class="feature-card" style="padding:26px 22px">
+        <div class="feature-icon" style="background:rgba(99,102,241,.15);border-color:rgba(99,102,241,.35)">↩️</div>
+        <div class="feature-title" style="font-size:1.05rem">Las falsas alarmas se corrigen</div>
+        <div class="feature-desc">El botón se aprieta sin querer. Hay unos segundos para deshacer, y a los que recibieron el aviso les llega que fue una falsa alarma. Todo queda en un historial con quién avisó, desde qué unidad y a qué hora.</div>
+      </div>
+    </div>
+
+    <!-- Lo que el módulo NO es. Vale más decirlo acá que descubrirlo después. -->
+    <div style="margin-top:22px;background:rgba(243,156,18,.08);border:1px solid rgba(243,156,18,.28);border-radius:10px;padding:16px 22px;max-width:860px;margin-left:auto;margin-right:auto">
+      <div style="font-size:.86rem;font-weight:700;color:#f39c12;margin-bottom:6px">Qué es y qué no es</div>
+      <div style="font-size:.85rem;color:var(--text-muted);line-height:1.6">
+        Avisa a los vecinos y a la portería del condominio. <strong style="color:var(--text)">No llama a Carabineros, Bomberos ni a una ambulancia</strong>: la misma pantalla deja esos números a un toque, para que nadie pierda tiempo. Y el aviso llega a quienes tengan la app instalada con las notificaciones activadas, así que conviene dejarlas listas el día de la puesta en marcha.
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section visitas-section" id="visitas">
   <div class="visitas-bg"></div>
   <div class="container visitas-content">
@@ -1410,7 +1468,7 @@
       <p class="section-sub">Visitas y encomiendas quedan registradas en la misma app, y el residente se entera solo. Sin llamados por citófono ni papeles que se pierden.</p>
       <a href="#precios-modulo" style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--green-dim);border:1px solid rgba(34,197,94,.35);border-radius:999px;padding:8px 18px">
         <span style="font-size:.9rem">🏷️</span>
-        <span style="font-size:.82rem;font-weight:700;color:var(--green);letter-spacing:.02em">1 UF mensual cada módulo · los dos por 1,5 UF · Ver precios →</span>
+        <span style="font-size:.82rem;font-weight:700;color:var(--green);letter-spacing:.02em">1 UF mensual cada módulo · los tres por 1,5 UF · Ver precios →</span>
       </a>
     </div>
 
@@ -1808,16 +1866,32 @@
     <div style="margin-top:56px" id="precios-modulo">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
         <div style="height:1px;flex:1;background:var(--border)"></div>
-        <span style="font-size:.78rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap">🪪 Módulo de visitas y encomiendas — lo paga el condominio</span>
+        <span style="font-size:.78rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap">🚨🪪📦 Módulos del condominio — los paga el condominio</span>
         <div style="height:1px;flex:1;background:var(--border)"></div>
       </div>
       <p style="text-align:center;font-size:.9rem;color:var(--text-muted);max-width:640px;margin:0 auto 36px;line-height:1.65">
         Se contrata aparte de la licencia de acceso, con un pago mensual en UF por condominio. Cubre a todos los residentes y a la portería.
       </p>
       <div style="background:var(--green-dim);border:1px solid rgba(34,197,94,.25);border-radius:10px;padding:12px 20px;max-width:640px;margin:-18px auto 36px;text-align:center;font-size:.85rem;color:var(--text-muted);line-height:1.55">
-        <strong style="color:var(--green)">También sin control de puerta.</strong> Si el condominio solo quiere visitas y encomiendas, paga únicamente el módulo: sin instalación, sin hardware y sin licencias para los residentes.
+        <strong style="color:var(--green)">También sin control de puerta.</strong> Si el condominio solo quiere estos módulos, paga únicamente lo que contrate: sin instalación, sin hardware y sin licencias para los residentes.
       </div>
-      <div class="pricing-grid" style="max-width:900px;margin:0 auto">
+      <!-- Cuatro tarjetas: las media queries de arriba ya llevan este ancho a dos
+           columnas en tablet y a una en teléfono. -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1160px;margin:0 auto">
+        <!-- Pánico -->
+        <div class="price-card">
+          <div class="price-plan">🚨 Botón de pánico</div>
+          <div class="price-num">1<span> UF</span></div>
+          <div class="price-desc">Mensual · por condominio</div>
+          <ul class="price-features">
+            <li>Robo, incendio, escape de gas</li>
+            <li>Emergencia médica</li>
+            <li>Fuga de agua, luz, ascensor</li>
+            <li>El administrador elige a quién avisa cada uno</li>
+            <li>Historial de alertas exportable</li>
+          </ul>
+          <a href="#contacto" class="price-cta price-cta-ghost" style="display:block;text-align:center">Consultar</a>
+        </div>
         <!-- Visitas -->
         <div class="price-card">
           <div class="price-plan">🪪 Visitas</div>
@@ -1832,20 +1906,6 @@
           </ul>
           <a href="#contacto" class="price-cta price-cta-ghost" style="display:block;text-align:center">Consultar</a>
         </div>
-        <!-- Los dos -->
-        <div class="price-card highlighted">
-          <div class="price-badge">Ahorra 0,5 UF</div>
-          <div class="price-plan">🪪📦 Visitas + encomiendas</div>
-          <div class="price-num">1,5<span> UF</span></div>
-          <div class="price-desc">Mensual · por condominio</div>
-          <ul class="price-features">
-            <li>Todo el módulo de visitas</li>
-            <li>Todo el módulo de encomiendas</li>
-            <li>Avisos por correo al residente</li>
-            <li>Una sola pantalla para la portería</li>
-          </ul>
-          <a href="#contacto" class="price-cta price-cta-fill" style="display:block;text-align:center">Consultar</a>
-        </div>
         <!-- Encomiendas -->
         <div class="price-card">
           <div class="price-plan">📦 Encomiendas</div>
@@ -1859,6 +1919,21 @@
             <li>Respaldo ante reclamos</li>
           </ul>
           <a href="#contacto" class="price-cta price-cta-ghost" style="display:block;text-align:center">Consultar</a>
+        </div>
+        <!-- Los tres -->
+        <div class="price-card highlighted">
+          <div class="price-badge">Lanzamiento · ahorra 1,5 UF</div>
+          <div class="price-plan">🚨🪪📦 Los tres módulos</div>
+          <div class="price-num">1,5<span> UF</span></div>
+          <div class="price-desc">Mensual · por condominio</div>
+          <ul class="price-features">
+            <li>Botón de pánico completo</li>
+            <li>Todo el módulo de visitas</li>
+            <li>Todo el módulo de encomiendas</li>
+            <li>Una sola pantalla para la portería</li>
+            <li>Al precio de uno y medio</li>
+          </ul>
+          <a href="#contacto" class="price-cta price-cta-fill" style="display:block;text-align:center">Consultar</a>
         </div>
       </div>
       <p style="text-align:center;font-size:.78rem;color:var(--text-muted);margin-top:20px">
@@ -1882,8 +1957,12 @@
         <div class="faq-a"><div class="faq-a-inner">Sí. El administrador puede activar el "modo condominio", donde el edificio paga una suscripción mensual que cubre a todos los residentes autorizados. Los usuarios no necesitan gestionar ni pagar nada por su cuenta. El sistema envía avisos automáticos antes del vencimiento y tiene un período de gracia configurable antes de bloquear el acceso.</div></div>
       </div>
       <div class="faq-item">
+        <div class="faq-q">¿El botón de pánico llama a Carabineros o a una ambulancia? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No, y es importante que se entienda antes de contratarlo: <strong>avisa a los vecinos y a la portería del condominio</strong>, que son quienes están a metros y pueden reaccionar en el minuto. La misma pantalla deja los números de Carabineros, Bomberos y ambulancia a un toque, para que nadie pierda tiempo buscándolos. El aviso llega a quienes tengan la app instalada con las notificaciones activadas, así que conviene dejarlas listas el día de la puesta en marcha.</div></div>
+      </div>
+      <div class="faq-item">
         <div class="faq-q">¿Puedo contratar solo visitas y encomiendas, sin el control de puerta? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Sí. El módulo funciona por sí solo: la portería registra visitas y encomiendas en la app y los residentes reciben los avisos, sin tocar cómo se abre hoy el portón. En ese caso el condominio paga únicamente el módulo —1 UF mensual por visitas o por encomiendas, o 1,5 UF por los dos— sin costo de instalación, sin hardware y sin licencias para los residentes. <a href="#precios-modulo" style="color:var(--orange);text-decoration:underline">Ver precios</a>.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Sí. El módulo funciona por sí solo: la portería registra visitas y encomiendas en la app y los residentes reciben los avisos, sin tocar cómo se abre hoy el portón. En ese caso el condominio paga únicamente el módulo —1 UF mensual cada uno, o 1,5 UF por los tres, incluido el botón de pánico— sin costo de instalación, sin hardware y sin licencias para los residentes. <a href="#precios-modulo" style="color:var(--orange);text-decoration:underline">Ver precios</a>.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">¿Necesito reemplazar mi cerradura o barrera existente? <span class="faq-arrow">▾</span></div>
@@ -2012,7 +2091,8 @@
             <optgroup label="── Módulo de visitas y encomiendas" style="background:#131728">
               <option value="mod-visitas" style="background:#131728">Módulo de visitas — 1 UF mensual</option>
               <option value="mod-encomiendas" style="background:#131728">Módulo de encomiendas — 1 UF mensual</option>
-              <option value="mod-ambos" style="background:#131728">Visitas + encomiendas — 1,5 UF mensual</option>
+              <option value="mod-panico" style="background:#131728">Botón de pánico — 1 UF mensual</option>
+              <option value="mod-todos" style="background:#131728">Los tres módulos — 1,5 UF mensual (lanzamiento)</option>
             </optgroup>
           </select>
         </div>
