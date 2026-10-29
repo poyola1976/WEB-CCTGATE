@@ -392,6 +392,7 @@
         <ul>
           <li><strong>Visitas</strong>: nombre, documento de identidad (RUT, pasaporte u otro), patente del vehículo, unidad de destino, descripción, fecha y hora de entrada y de salida, y quién validó el ingreso.</li>
           <li><strong>Encomiendas</strong>: nombre del destinatario, unidad, descripción del paquete, y fechas de recepción y de entrega.</li>
+          <li><strong>Foto del paquete</strong> (opcional): al recibir una encomienda, la portería puede tomar una fotografía <strong>del paquete</strong> para dejar constancia de lo que llegó y de su estado. La ve el destinatario, la portería y la administración del condominio. Es una función que el condominio puede no usar, y la fotografía es del bulto: la aplicación no fotografía a las personas que reciben ni retiran encomiendas.</li>
         </ul>
         <p>Respecto de estos datos, el condominio actúa como <em>responsable del tratamiento</em> —es quien exige registrar las visitas y decide para qué—, aunque los ingrese un residente, y CCTGATE como <em>encargado</em>: los tratamos únicamente para prestarle el servicio contratado y no los usamos para ningún otro fin. Las condiciones de ese encargo están en la sección <a href="#term-encargo">2.10</a>, y las obligaciones de quien registra una visita, en la <a href="#term-visitas">2.11</a>.</p>
 
@@ -424,11 +425,13 @@
           </thead>
           <tbody>
             <tr><td>Datos de cuenta y contrato</td><td>Mientras dure la relación contractual + 5 años por obligaciones tributarias</td></tr>
-            <tr><td>Registros de acceso (historial)</td><td>12 meses por defecto, configurable por el administrador</td></tr>
+            <tr><td>Registros de acceso (historial)</td><td>12 meses; luego se eliminan automáticamente. Cada mes queda resumido en su cartola mensual (ver más abajo)</td></tr>
+            <tr><td>Cartolas mensuales (respaldo del historial)</td><td>Mientras el condominio o la empresa mantenga el servicio, y hasta 30 días después de su término para que pueda exportarlas. Cada cartola se conserva sin modificaciones y no se elimina de forma individual. El documento de identidad de las visitas aparece parcial (por ejemplo, 12.345.***-9)</td></tr>
             <tr><td>Video CCTV en vivo</td><td>No se almacena de forma persistente salvo grabación expresa</td></tr>
             <tr><td>Grabaciones CCTV (si aplica)</td><td>Plazo definido por el administrador, máximo 30 días por defecto</td></tr>
             <tr><td>Logs técnicos y de seguridad</td><td>90 días</td></tr>
             <tr><td>Registro de visitas y encomiendas</td><td>Mientras el condominio mantenga el servicio; el administrador puede eliminarlos antes</td></tr>
+            <tr><td>Fotografía del paquete</td><td>Se elimina junto con el registro de su encomienda: 12 meses desde la recepción, una vez entregada o anulada, o antes si el administrador depura el registro</td></tr>
             <tr><td>Formulario de contacto</td><td>24 meses tras última interacción</td></tr>
           </tbody>
         </table>
@@ -487,6 +490,7 @@
           <tbody>
             <tr><td>Registros de acceso (qué puerta se abrió y cuándo)</td><td>12 meses</td><td>Son el registro de seguridad del condominio, no solo tuyo</td></tr>
             <tr><td>Visitas y encomiendas que hayas registrado</td><td>Mientras el condominio mantenga el servicio</td><td>Pertenecen al registro del condominio</td></tr>
+            <tr><td>Cartolas mensuales que incluyan tu nombre o tus visitas</td><td>Mientras el condominio mantenga el servicio</td><td>Son el registro de respaldo del condominio y se conservan sin modificaciones; el documento de identidad aparece parcial</td></tr>
             <tr><td>Documentos tributarios de pagos realizados</td><td>5 años</td><td>Obligación legal (Código Tributario)</td></tr>
           </tbody>
         </table>
